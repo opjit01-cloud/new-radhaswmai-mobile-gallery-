@@ -1,65 +1,66 @@
 [
   {
-    "id": "iphone-16",
-    "name": "iPhone 16",
+    "id": "iphone-16-pro",
+    "name": "iPhone 16 Pro",
     "brand": "Apple",
     "category": "smartphones",
-    "price": 79900,
-    "originalPrice": 89900,
-    "rating": 4.8,
-    "reviewsCount": 310,
-    "image": "https://images.unsplash.com/photo-1567581935884-3349723552ca?auto=format&fit=crop&w=800&q=80",
+    "price": 119900,
+    "originalPrice": 129900,
+    "rating": 4.9,
+    "reviewsCount": 278,
+    "image": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=800&q=80",
     "images": [
-      "https://images.unsplash.com/photo-1567581935884-3349723552ca?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1591337676887-a217a6970a8a?auto=format&fit=crop&w=800&q=80"
     ],
     "colors": [
       {
-        "name": "Ultramarine",
-        "hex": "#4B6B94"
+        "name": "Desert Titanium",
+        "hex": "#C2A387"
       },
       {
-        "name": "Teal",
-        "hex": "#7BA4A8"
+        "name": "Natural Titanium",
+        "hex": "#9E9B94"
       },
       {
-        "name": "Pink",
-        "hex": "#E8A5B8"
+        "name": "White Titanium",
+        "hex": "#E3E4E5"
       },
       {
-        "name": "White",
-        "hex": "#F2F2F2"
-      },
-      {
-        "name": "Black",
-        "hex": "#262626"
+        "name": "Black Titanium",
+        "hex": "#3B3B3D"
       }
     ],
     "storageVariants": [
       {
         "size": "128GB",
-        "price": 79900
+        "price": 119900
       },
       {
         "size": "256GB",
-        "price": 89900
+        "price": 129900
       },
       {
         "size": "512GB",
-        "price": 109900
+        "price": 149900
+      },
+      {
+        "size": "1TB",
+        "price": 169900
       }
     ],
-    "tag": "Everyday Powerhouse",
-    "badge": "Popular",
-    "emiStartsAt": 3329,
+    "tag": "Titanium Precision",
+    "badge": "Pro Optics",
+    "emiStartsAt": 4995,
     "specs": {
-      "Processor": "Apple A18 (3nm)",
-      "Camera": "48MP Fusion + 12MP Ultra-Wide Macro",
-      "Display": "6.1\" Super Retina XDR OLED",
-      "Design": "Aerospace-Grade Aluminum with Ceramic Shield"
+      "Processor": "Apple A18 Pro (3nm)",
+      "Camera": "48MP Fusion + 48MP Ultra-Wide + 12MP 5x Telephoto",
+      "Display": "6.3\" Super Retina XDR ProMotion 120Hz",
+      "Controls": "Dedicated Sapphire Glass Camera Control Key"
     },
-    "description": "The standard of modern smartphones featuring the new Camera Control key, macro photography, and blazing fast A18 chip.",
+    "description": "Compact pro ergonomics featuring the revolutionary 5x tetraprism optical zoom and Apple Intelligence architecture.",
     "inStock": true
   },
   {
