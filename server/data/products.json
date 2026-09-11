@@ -51,53 +51,57 @@
     "inStock": true
   },
   {
-    "id": "galaxy-s25",
-    "name": "Galaxy S25",
+    "id": "galaxy-z-flip-6",
+    "name": "Galaxy Z Flip 6",
     "brand": "Samsung",
     "category": "smartphones",
-    "price": 79999,
-    "originalPrice": 84999,
-    "rating": 4.7,
-    "reviewsCount": 220,
-    "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80",
+    "price": 109999,
+    "originalPrice": 119999,
+    "rating": 4.8,
+    "reviewsCount": 167,
+    "image": "https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&w=800&q=80",
     "images": [
-      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&fit=crop&w=800&q=80"
     ],
     "colors": [
       {
-        "name": "Onyx Black",
-        "hex": "#212224"
+        "name": "Mint",
+        "hex": "#A3D9C9"
       },
       {
-        "name": "Marble Gray",
-        "hex": "#D6D7DA"
+        "name": "Silver Shadow",
+        "hex": "#C6C7CA"
       },
       {
-        "name": "Amber Yellow",
-        "hex": "#E7D8A4"
+        "name": "Yellow",
+        "hex": "#F0E2A8"
+      },
+      {
+        "name": "Blue",
+        "hex": "#87A9C9"
       }
     ],
     "storageVariants": [
       {
-        "size": "128GB",
-        "price": 79999
+        "size": "256GB",
+        "price": 109999
       },
       {
-        "size": "256GB",
-        "price": 85999
+        "size": "512GB",
+        "price": 121999
       }
     ],
-    "tag": "Compact Flagship",
-    "badge": "Handy Power",
-    "emiStartsAt": 3333,
+    "tag": "FlexCam AI",
+    "badge": "Style Icon",
+    "emiStartsAt": 4583,
     "specs": {
-      "Processor": "Snapdragon 8 Elite (3nm)",
-      "Camera": "50MP OIS + 12MP Ultra-Wide + 10MP 3x Telephoto",
-      "Display": "6.2\" Dynamic AMOLED 2X FHD+ 120Hz",
-      "Weight": "Only 167 grams ergonomic featherweight"
+      "Main Screen": "6.7\" Dynamic AMOLED 2X 120Hz",
+      "Flex Window": "3.4\" Super AMOLED Cover Screen",
+      "Camera": "Upgraded 50MP Wide OIS + 12MP Ultra-Wide",
+      "Cooling": "First Flip with Vapor Chamber Cooling"
     },
-    "description": "Pure flagship power in a pocket-friendly compact chassis with symmetric razor-thin bezels.",
+    "description": "Iconic compact clamshell folding into your palm with 50MP pro camera and hands-free FlexCam video recording.",
     "inStock": true
   },
   {
