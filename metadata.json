@@ -1,0 +1,6 @@
+{
+  "name": "New Radhaswami Mobile Gallery",
+  "description": "Flagship smartphones, 3D interactive viewer, EMI financing studio, and store portal for New Radhaswami Mobile & Electronics Gallery in Pithampur.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

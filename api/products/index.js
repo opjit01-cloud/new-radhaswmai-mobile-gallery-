@@ -67,12 +67,12 @@ function updateLocalProducts(products) {
 }
 
 async function fetchProductsFromGitHub() {
-  // 1. Primary Raw CDN fetch from opjit01-cloud repo (Public, zero auth, zero rate limit)
+  // 1. Primary Raw CDN fetch from opjit01-cloud repo
   try {
     const rawUrl = `https://raw.githubusercontent.com/${GITHUB_REPO_OWNER}/${GITHUB_REPO_NAME}/main/${PRODUCTS_FILE_PATH}?t=${Date.now()}`;
     const res = await fetch(rawUrl, {
       headers: {
-        'Cache-Control': 'no-cache, no-store, must-revalidate'
+        'Authorization': `token ${GITHUB_PAT}`
       }
     });
     if (res.ok) {
@@ -88,11 +88,7 @@ async function fetchProductsFromGitHub() {
   // 2. Fallback Raw CDN fetch from jeeban22222323-cell repo
   try {
     const fallbackUrl = `https://raw.githubusercontent.com/${FALLBACK_OWNER}/${FALLBACK_NAME}/main/${PRODUCTS_FILE_PATH}?t=${Date.now()}`;
-    const res = await fetch(fallbackUrl, {
-      headers: {
-        'Cache-Control': 'no-cache, no-store, must-revalidate'
-      }
-    });
+    const res = await fetch(fallbackUrl);
     if (res.ok) {
       const data = await res.json();
       if (Array.isArray(data) && data.length > 0) {
@@ -158,19 +154,17 @@ export default async function handler(req, res) {
     return res.status(200).end();
   }
 
-  // GET: Serve real-time catalog instantly with live GitHub Raw CDN verification
+  // GET: Serve real-time catalog instantly with 0 GitHub API rate limits
   if (req.method === 'GET') {
-    let prods = null;
-    try {
-      const gh = await fetchProductsFromGitHub();
-      if (gh && gh.products && Array.isArray(gh.products) && gh.products.length > 0) {
-        prods = gh.products;
-        updateLocalProducts(prods);
-      }
-    } catch {}
-
+    let prods = getLocalProducts();
     if (!prods || prods.length === 0) {
-      prods = getLocalProducts();
+      try {
+        const gh = await fetchProductsFromGitHub();
+        if (gh.products && Array.isArray(gh.products)) {
+          prods = gh.products;
+          updateLocalProducts(prods);
+        }
+      } catch {}
     }
 
     res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0');

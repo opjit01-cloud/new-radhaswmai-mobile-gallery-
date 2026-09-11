@@ -12,7 +12,9 @@ app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
 // Serve uploaded assets
-const uploadsDir = path.join(__dirname, '../public/uploads');
+const uploadsDir = fs.existsSync(path.join(process.cwd(), 'public', 'uploads'))
+  ? path.join(process.cwd(), 'public', 'uploads')
+  : path.join(__dirname, '../public/uploads');
 if (!fs.existsSync(uploadsDir)) {
   fs.mkdirSync(uploadsDir, { recursive: true });
 }
@@ -21,33 +23,108 @@ app.use('/uploads', express.static(uploadsDir));
 // ==========================================
 // PERSISTENT FILE DATABASE (JSON STORAGE)
 // ==========================================
-const dataDir = path.join(__dirname, 'data');
+// PERSISTENT FILE DATABASE (JSON STORAGE WITH ATOMIC WRITES & BACKUP)
+// ==========================================
+const dataDir = fs.existsSync(path.join(process.cwd(), 'server', 'data'))
+  ? path.join(process.cwd(), 'server', 'data')
+  : path.join(__dirname, 'data');
 if (!fs.existsSync(dataDir)) {
   fs.mkdirSync(dataDir, { recursive: true });
 }
 
+// Atomically write data with temp file + rename and mirror to .backup file
 function saveDb(fileName, data) {
   const filePath = path.join(dataDir, fileName);
+  const backupPath = path.join(dataDir, `${fileName}.backup`);
+  const tmpPath = path.join(dataDir, `${fileName}.tmp.${Date.now()}`);
+  const jsonStr = JSON.stringify(data, null, 2);
+
   try {
-    fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf-8');
+    // 1. Write to temp file
+    fs.writeFileSync(tmpPath, jsonStr, 'utf-8');
+    // 2. Atomic rename to primary destination
+    fs.renameSync(tmpPath, filePath);
+    // 3. Mirror to backup file for failover recovery
+    try {
+      fs.writeFileSync(backupPath, jsonStr, 'utf-8');
+    } catch {}
   } catch (err) {
-    console.error(`[DB-ERROR] Failed to write ${fileName}:`, err.message);
+    console.error(`[DB-ERROR] Failed to atomically write ${fileName}:`, err.message);
+    try {
+      if (fs.existsSync(tmpPath)) fs.unlinkSync(tmpPath);
+    } catch {}
+    // Direct write fallback
+    try {
+      fs.writeFileSync(filePath, jsonStr, 'utf-8');
+    } catch (e2) {
+      console.error(`[DB-ERROR] Direct fallback write failed for ${fileName}:`, e2.message);
+    }
   }
 }
 
+// Resilient load with automatic backup fallback
 function loadDb(fileName, fallback) {
   const filePath = path.join(dataDir, fileName);
+  const backupPath = path.join(dataDir, `${fileName}.backup`);
+
   try {
     if (fs.existsSync(filePath)) {
       const content = fs.readFileSync(filePath, 'utf-8');
-      return JSON.parse(content);
+      if (content && content.trim().length > 0) {
+        const parsed = JSON.parse(content);
+        return parsed;
+      }
     }
   } catch (err) {
-    console.error(`[DB-ERROR] Failed to read ${fileName}:`, err.message);
+    console.error(`[DB-ERROR] Failed to read primary ${fileName}, trying backup:`, err.message);
   }
+
+  // Failover to backup
+  try {
+    if (fs.existsSync(backupPath)) {
+      const backupContent = fs.readFileSync(backupPath, 'utf-8');
+      if (backupContent && backupContent.trim().length > 0) {
+        const parsed = JSON.parse(backupContent);
+        console.log(`[DB-RESTORE] Successfully recovered ${fileName} from backup!`);
+        saveDb(fileName, parsed);
+        return parsed;
+      }
+    }
+  } catch (err) {
+    console.error(`[DB-ERROR] Backup read failed for ${fileName}:`, err.message);
+  }
+
   saveDb(fileName, fallback);
   return fallback;
 }
+
+// ==========================================
+// REAL-TIME SSE (SERVER-SENT EVENTS) ENGINE
+// ==========================================
+const sseClients = new Set();
+
+function broadcastRealtime(event, data) {
+  const payload = JSON.stringify(data);
+  const msg = `event: ${event}\ndata: ${payload}\n\n`;
+  for (const client of sseClients) {
+    try {
+      client.write(msg);
+    } catch {
+      sseClients.delete(client);
+    }
+  }
+}
+
+// Heartbeat ping every 20 seconds to keep all connections healthy
+setInterval(() => {
+  for (const client of sseClients) {
+    try {
+      client.write(': ping\n\n');
+    } catch {
+      sseClients.delete(client);
+    }
+  }
+}, 20000);
 
 // Dynamic Store Security Credentials & Settings
 let credentials = loadDb('credentials.json', {
@@ -1055,7 +1132,9 @@ app.post('/api/upload', (req, res) => {
 });
 
 // Save Gimbal Frames for Ultra-Fast Frame-by-Frame Scrubbing
-const framesDir = path.join(__dirname, '../public/gimbal_frames');
+const framesDir = fs.existsSync(path.join(process.cwd(), 'public', 'gimbal_frames'))
+  ? path.join(process.cwd(), 'public', 'gimbal_frames')
+  : path.join(__dirname, '../public/gimbal_frames');
 if (!fs.existsSync(framesDir)) {
   fs.mkdirSync(framesDir, { recursive: true });
 }
@@ -2093,9 +2172,37 @@ function saveProducts() {
 // REST API ENDPOINTS
 // ==========================================
 
-// 1. Get All Products with Multi-Facet Query Filtering
+// 0. Real-time Live Synchronization Stream (Server-Sent Events)
+app.get(['/api/realtime/events', '/api/products/stream'], (req, res) => {
+  res.writeHead(200, {
+    'Content-Type': 'text/event-stream',
+    'Cache-Control': 'no-cache, no-transform',
+    'Connection': 'keep-alive',
+    'Access-Control-Allow-Origin': '*',
+    'X-Accel-Buffering': 'no'
+  });
+  res.write(`event: init\ndata: ${JSON.stringify({ type: 'connected', total: PRODUCTS.length, timestamp: Date.now() })}\n\n`);
+
+  sseClients.add(res);
+
+  req.on('close', () => {
+    sseClients.delete(res);
+  });
+});
+
+// 1. Get All Products with Multi-Facet Query Filtering (or single by ?id=)
 app.get('/api/products', (req, res) => {
-  const { category, brand, maxPrice, search, sort } = req.query;
+  const { id, category, brand, maxPrice, search, sort } = req.query;
+
+  // Direct single product lookup via query parameter (?id=...)
+  if (id) {
+    const product = PRODUCTS.find(p => p.id === id);
+    if (!product) {
+      return res.status(404).json({ success: false, message: 'Product not found' });
+    }
+    return res.json({ success: true, product, products: PRODUCTS });
+  }
+
   let results = [...PRODUCTS];
 
   if (category && category !== 'all') {
@@ -2568,121 +2675,245 @@ app.post('/api/admin/activity', (req, res) => {
   res.status(201).json({ success: true, log: newLog });
 });
 
-// Add New Product
+// ==========================================
+// ROBUST PRODUCT CRUD & REAL-TIME DISPATCH
+// ==========================================
+
+// Add or Upsert Product
 app.post('/api/products', (req, res) => {
   const { id: reqId, name, brand, category, price, originalPrice, image, images, description, specs, inStock, colors, storageVariants } = req.body;
-  if (!name || !price) {
+  if (!name || price === undefined || price === null || price === '') {
     return res.status(400).json({ success: false, message: 'Product name and price are required' });
   }
+
+  const numPrice = Number(price);
+  const numOriginalPrice = Number(originalPrice || Math.round(numPrice * 1.15));
 
   // Check if product already exists (upsert)
   if (reqId) {
     const existingIdx = PRODUCTS.findIndex(p => p.id === reqId);
     if (existingIdx !== -1) {
-      PRODUCTS[existingIdx] = { ...PRODUCTS[existingIdx], ...req.body };
+      PRODUCTS[existingIdx] = {
+        ...PRODUCTS[existingIdx],
+        ...req.body,
+        price: numPrice,
+        originalPrice: numOriginalPrice,
+        emiStartsAt: Math.round(numPrice / 12)
+      };
       saveProducts();
-      return res.status(200).json({ success: true, message: 'Product updated successfully', product: PRODUCTS[existingIdx] });
+
+      ACTIVITY_LOGS.unshift({
+        id: 'act-' + Date.now(),
+        timestamp: new Date().toISOString(),
+        author: 'Inventory Manager',
+        action: 'Product Updated',
+        details: `Updated "${PRODUCTS[existingIdx].name}" (₹${numPrice.toLocaleString('en-IN')})`
+      });
+      if (ACTIVITY_LOGS.length > 200) ACTIVITY_LOGS.pop();
+      saveActivityLogs();
+
+      // Real-time broadcast
+      broadcastRealtime('product_updated', {
+        action: 'updated',
+        product: PRODUCTS[existingIdx],
+        products: PRODUCTS,
+        timestamp: Date.now()
+      });
+      broadcastRealtime('catalog_updated', { products: PRODUCTS, timestamp: Date.now() });
+
+      return res.status(200).json({
+        success: true,
+        message: 'Product updated successfully',
+        product: PRODUCTS[existingIdx],
+        products: PRODUCTS
+      });
     }
   }
 
-  const id = reqId || (name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') + '-' + Date.now().toString().slice(-4));
+  const generatedId = (name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') || 'product') + '-' + Date.now().toString().slice(-4);
+  const id = reqId || generatedId;
   const primaryImg = image || (images && images[0]) || 'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=800&q=80';
+  
   const newProduct = {
     id,
-    name,
-    brand: brand || 'Premium Brand',
+    name: name.trim(),
+    brand: brand ? brand.trim() : 'Flagship Brand',
     category: category || 'smartphones',
-    price: Number(price),
-    originalPrice: Number(originalPrice || Math.round(price * 1.15)),
+    price: numPrice,
+    originalPrice: numOriginalPrice,
     rating: 4.9,
     reviewsCount: 1,
     image: primaryImg,
     images: (images && images.length > 0) ? images : [primaryImg],
     colors: colors && colors.length > 0 ? colors : [
-      { name: 'Standard Titanium', hex: '#8E9196' },
+      { name: 'Standard Finish', hex: '#8E9196' },
       { name: 'Midnight Black', hex: '#1C1D21' }
     ],
     storageVariants: storageVariants && storageVariants.length > 0 ? storageVariants : [
-      { size: '128GB', price: Number(price) },
-      { size: '256GB', price: Math.round(Number(price) * 1.12) },
-      { size: '512GB', price: Math.round(Number(price) * 1.25) }
+      { size: '128GB', price: numPrice },
+      { size: '256GB', price: Math.round(numPrice * 1.12) },
+      { size: '512GB', price: Math.round(numPrice * 1.25) }
     ],
-    emiStartsAt: Math.round(Number(price) / 12),
+    emiStartsAt: Math.round(numPrice / 12),
     specs: specs || {
       'Warranty': '1 Year Manufacturer Official Warranty',
-      'Delivery': 'Express Secured Courier Delivery'
+      'Delivery': 'Express Insured Air Courier Delivery'
     },
-    description: description || 'Flagship smartphone verified by New Radhaswami Mobile Gallery.',
-    inStock: inStock !== undefined ? inStock : true
+    description: description || `${name} verified Indian stock by New Radhaswami Mobile Gallery.`,
+    inStock: inStock !== undefined ? Boolean(inStock) : true,
+    tag: req.body.tag || 'Verified Showroom Inventory',
+    badge: req.body.badge || (inStock ? 'In Stock' : 'Out of Stock')
   };
+
   PRODUCTS.unshift(newProduct);
   saveProducts();
 
   ACTIVITY_LOGS.unshift({
     id: 'act-' + Date.now(),
     timestamp: new Date().toISOString(),
-    author: 'Staff Inventory',
+    author: 'Inventory Manager',
     action: 'Product Added',
     details: `Added "${newProduct.name}" (₹${newProduct.price.toLocaleString('en-IN')}) to showroom catalog`
   });
+  if (ACTIVITY_LOGS.length > 200) ACTIVITY_LOGS.pop();
   saveActivityLogs();
 
-  res.status(201).json({ success: true, message: 'Product added successfully to catalog', product: newProduct });
+  // Real-time broadcast
+  broadcastRealtime('product_added', {
+    action: 'added',
+    product: newProduct,
+    products: PRODUCTS,
+    timestamp: Date.now()
+  });
+  broadcastRealtime('catalog_updated', { products: PRODUCTS, timestamp: Date.now() });
+
+  res.status(201).json({
+    success: true,
+    message: 'Product added successfully to catalog',
+    product: newProduct,
+    products: PRODUCTS
+  });
 });
 
-// Update Existing Product
-app.put('/api/products/:id', (req, res) => {
-  const index = PRODUCTS.findIndex(p => p.id === req.params.id);
-  if (index === -1) {
-    return res.status(404).json({ success: false, message: 'Product not found' });
+// Update Existing Product (Supports /api/products/:id AND /api/products?id=...)
+const handleUpdateProduct = (req, res) => {
+  const targetId = req.params.id || req.query.id || (req.body && req.body.id);
+  if (!targetId) {
+    return res.status(400).json({ success: false, message: 'Product ID is required for update' });
   }
-  PRODUCTS[index] = { ...PRODUCTS[index], ...req.body };
+
+  const index = PRODUCTS.findIndex(p => p.id === targetId);
+  if (index === -1) {
+    return res.status(404).json({ success: false, message: `Product "${targetId}" not found` });
+  }
+
+  const updatedPrice = req.body.price !== undefined ? Number(req.body.price) : PRODUCTS[index].price;
+  const updatedOriginalPrice = req.body.originalPrice !== undefined ? Number(req.body.originalPrice) : PRODUCTS[index].originalPrice;
+
+  PRODUCTS[index] = {
+    ...PRODUCTS[index],
+    ...req.body,
+    price: updatedPrice,
+    originalPrice: updatedOriginalPrice,
+    emiStartsAt: Math.round(updatedPrice / 12)
+  };
+
   saveProducts();
 
   ACTIVITY_LOGS.unshift({
     id: 'act-' + Date.now(),
     timestamp: new Date().toISOString(),
-    author: 'Staff Inventory',
+    author: 'Inventory Manager',
     action: 'Product Updated',
     details: `Updated specifications for "${PRODUCTS[index].name}"`
   });
+  if (ACTIVITY_LOGS.length > 200) ACTIVITY_LOGS.pop();
   saveActivityLogs();
 
-  res.json({ success: true, message: 'Product updated successfully', product: PRODUCTS[index] });
-});
+  // Real-time broadcast
+  broadcastRealtime('product_updated', {
+    action: 'updated',
+    product: PRODUCTS[index],
+    products: PRODUCTS,
+    timestamp: Date.now()
+  });
+  broadcastRealtime('catalog_updated', { products: PRODUCTS, timestamp: Date.now() });
 
-// Delete Product
-app.delete('/api/products/:id', (req, res) => {
-  const index = PRODUCTS.findIndex(p => p.id === req.params.id);
-  if (index === -1) {
-    return res.status(404).json({ success: false, message: 'Product not found' });
+  res.json({
+    success: true,
+    message: 'Product updated successfully',
+    product: PRODUCTS[index],
+    products: PRODUCTS
+  });
+};
+
+app.put('/api/products/:id', handleUpdateProduct);
+app.put('/api/products', handleUpdateProduct);
+app.patch('/api/products/:id', handleUpdateProduct);
+app.patch('/api/products', handleUpdateProduct);
+
+// Delete Product (Supports /api/products/:id AND /api/products?id=...)
+const handleDeleteProduct = (req, res) => {
+  const targetId = req.params.id || req.query.id || (req.body && req.body.id);
+  if (!targetId) {
+    return res.status(400).json({ success: false, message: 'Product ID is required for deletion' });
   }
+
+  const index = PRODUCTS.findIndex(p => p.id === targetId);
+  if (index === -1) {
+    return res.status(404).json({ success: false, message: `Product "${targetId}" not found in catalog` });
+  }
+
   const deleted = PRODUCTS.splice(index, 1)[0];
   saveProducts();
 
   ACTIVITY_LOGS.unshift({
     id: 'act-' + Date.now(),
     timestamp: new Date().toISOString(),
-    author: 'Staff Inventory',
+    author: 'Inventory Manager',
     action: 'Product Removed',
     details: `Removed "${deleted.name}" from showroom catalog`
   });
+  if (ACTIVITY_LOGS.length > 200) ACTIVITY_LOGS.pop();
   saveActivityLogs();
 
-  res.json({ success: true, message: `Product ${deleted.name} removed from catalog`, id: req.params.id });
-});
+  // Real-time broadcast
+  broadcastRealtime('product_deleted', {
+    action: 'deleted',
+    id: targetId,
+    product: deleted,
+    products: PRODUCTS,
+    timestamp: Date.now()
+  });
+  broadcastRealtime('catalog_updated', { products: PRODUCTS, timestamp: Date.now() });
 
-// Atomic Stock Toggle Endpoint (Instant Live Save)
-app.put('/api/products/:id/stock', (req, res) => {
-  const { id } = req.params;
-  const index = PRODUCTS.findIndex(p => p.id === id);
-  if (index === -1) {
-    return res.status(404).json({ success: false, message: 'Product not found' });
+  res.json({
+    success: true,
+    message: `Product "${deleted.name}" removed from catalog`,
+    id: targetId,
+    products: PRODUCTS
+  });
+};
+
+app.delete('/api/products/:id', handleDeleteProduct);
+app.delete('/api/products', handleDeleteProduct);
+
+// Atomic Stock Toggle Endpoint (Supports /api/products/:id/stock, /api/products/stock?id=..., /api/products/stock)
+const handleStockToggle = (req, res) => {
+  const targetId = req.params.id || req.query.id || (req.body && (req.body.id || req.body.productId));
+  if (!targetId) {
+    return res.status(400).json({ success: false, message: 'Product ID is required for stock toggle' });
   }
 
-  const requestedStock = req.body.inStock;
+  const index = PRODUCTS.findIndex(p => p.id === targetId);
+  if (index === -1) {
+    return res.status(404).json({ success: false, message: `Product "${targetId}" not found` });
+  }
+
+  const requestedStock = req.body && req.body.inStock !== undefined ? req.body.inStock : req.query.inStock;
   const newStock = requestedStock !== undefined ? Boolean(requestedStock) : !PRODUCTS[index].inStock;
   PRODUCTS[index].inStock = newStock;
+  PRODUCTS[index].badge = newStock ? 'In Stock' : 'Out of Stock';
   saveProducts();
 
   const statusText = newStock ? 'IN STOCK' : 'OUT OF STOCK';
@@ -2696,13 +2927,30 @@ app.put('/api/products/:id/stock', (req, res) => {
   if (ACTIVITY_LOGS.length > 200) ACTIVITY_LOGS.pop();
   saveActivityLogs();
 
+  // Real-time broadcast
+  broadcastRealtime('stock_toggled', {
+    action: 'stock_toggled',
+    id: targetId,
+    inStock: newStock,
+    product: PRODUCTS[index],
+    products: PRODUCTS,
+    timestamp: Date.now()
+  });
+  broadcastRealtime('catalog_updated', { products: PRODUCTS, timestamp: Date.now() });
+
   return res.json({
     success: true,
     message: `Product ${PRODUCTS[index].name} is now ${statusText}`,
     inStock: newStock,
-    product: PRODUCTS[index]
+    product: PRODUCTS[index],
+    products: PRODUCTS
   });
-});
+};
+
+app.put('/api/products/:id/stock', handleStockToggle);
+app.put('/api/products/stock', handleStockToggle);
+app.patch('/api/products/:id/stock', handleStockToggle);
+app.patch('/api/products/stock', handleStockToggle);
 
 // Coupon Management
 app.get('/api/coupons', (req, res) => {
@@ -3014,6 +3262,10 @@ app.post('/api/admin/credentials', (req, res) => {
   res.json({ success: true, message: 'Executive credentials updated and persisted successfully' });
 });
 
-app.listen(PORT, () => {
-  console.log(`⚡ New Radhaswami Mobile Gallery API Server listening on port ${PORT}`);
-});
+if (require.main === module) {
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`⚡ New Radhaswami Mobile Gallery API Server listening on port ${PORT}`);
+  });
+}
+
+module.exports = { app, PORT };
