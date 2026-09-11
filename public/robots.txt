@@ -1,0 +1,10 @@
+# Robots.txt for New Radhaswami Mobile Gallery
+User-agent: *
+Allow: /
+Disallow: /#owner08
+Disallow: /#staff08
+Disallow: /api/admin/
+Disallow: /api/staff/
+
+# Official Sitemap Location for Google Search Console
+Sitemap: https://newradhaswami.vercel.app/sitemap.xml

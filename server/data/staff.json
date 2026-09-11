@@ -1,0 +1,31 @@
+[
+  {
+    "id": "stf-1",
+    "name": "Rohan Sharma",
+    "phone": "+91 98765 00001",
+    "email": "rohan.s@radhaswamigallery.in",
+    "pin": "4321",
+    "role": "Floor Manager",
+    "permissions": [
+      "inventory",
+      "orders",
+      "categories"
+    ],
+    "shift": "Morning & Evening Showroom",
+    "status": "Active"
+  },
+  {
+    "id": "stf-2",
+    "name": "Priya Patel",
+    "phone": "+91 98765 00002",
+    "email": "priya.p@radhaswamigallery.in",
+    "pin": "1234",
+    "role": "Order & Dispatch Specialist",
+    "permissions": [
+      "orders",
+      "reviews"
+    ],
+    "shift": "BlueDart Express Liaison",
+    "status": "Active"
+  }
+]

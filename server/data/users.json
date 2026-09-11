@@ -1,0 +1,50 @@
+[
+  {
+    "id": "usr-1",
+    "name": "Vikramaditya Singhania",
+    "phone": "+91 98200 11223",
+    "email": "vikram.singhania@heritage.in",
+    "city": "Bandra West, Mumbai",
+    "role": "VIP Client",
+    "totalOrders": 3,
+    "totalSpent": 384700,
+    "status": "Active",
+    "joinedDate": "2026-01-14"
+  },
+  {
+    "id": "usr-2",
+    "name": "Pooja Agarwal",
+    "phone": "+91 98450 33445",
+    "email": "pooja.a@techcorpmumbai.com",
+    "city": "Koregaon Park, Pune",
+    "role": "Customer",
+    "totalOrders": 2,
+    "totalSpent": 149998,
+    "status": "Active",
+    "joinedDate": "2026-02-02"
+  },
+  {
+    "id": "usr-3",
+    "name": "Kunal Deshmukh",
+    "phone": "+91 98110 55667",
+    "email": "kunal.deshmukh@capitalinvest.com",
+    "city": "Nariman Point, Mumbai",
+    "role": "VIP Client",
+    "totalOrders": 4,
+    "totalSpent": 428000,
+    "status": "Active",
+    "joinedDate": "2026-01-20"
+  },
+  {
+    "id": "usr-4",
+    "name": "Aanya Sharma",
+    "phone": "+91 98700 99881",
+    "email": "aanya.sharma@designstudio.in",
+    "city": "Juhu, Mumbai",
+    "role": "Customer",
+    "totalOrders": 1,
+    "totalSpent": 29990,
+    "status": "Active",
+    "joinedDate": "2026-02-18"
+  }
+]

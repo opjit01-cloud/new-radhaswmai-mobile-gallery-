@@ -1,0 +1,44 @@
+[
+  {
+    "id": "all",
+    "name": "All Departments",
+    "icon": "Sparkles",
+    "description": "Browse all flagship devices and audio",
+    "active": true
+  },
+  {
+    "id": "smartphones",
+    "name": "Smartphones",
+    "icon": "Smartphone",
+    "description": "Apple, Samsung, Google Pixel & OnePlus flagships",
+    "active": true
+  },
+  {
+    "id": "audio",
+    "name": "Audio & Acoustics",
+    "icon": "Headphones",
+    "description": "ANC headphones and audiophile earbuds",
+    "active": true
+  },
+  {
+    "id": "watches",
+    "name": "Smartwatches",
+    "icon": "Watch",
+    "description": "Titanium luxury smartwatches & GPS multisport",
+    "active": true
+  },
+  {
+    "id": "chargers",
+    "name": "Fast Chargers",
+    "icon": "BatteryCharging",
+    "description": "GaN chargers & magnetic power banks",
+    "active": true
+  },
+  {
+    "id": "accessories",
+    "name": "Accessories",
+    "icon": "Shield",
+    "description": "MagSafe cases, titanium shields & glass protectors",
+    "active": true
+  }
+]

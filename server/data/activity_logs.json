@@ -1,0 +1,219 @@
+[
+  {
+    "id": "act-1789015888334",
+    "timestamp": "2026-09-10T04:51:28.334Z",
+    "author": "Owner Suite",
+    "action": "Promotional Voucher Deleted",
+    "details": "Decommissioned voucher TESTPROMO20"
+  },
+  {
+    "id": "act-1789015888329",
+    "timestamp": "2026-09-10T04:51:28.329Z",
+    "author": "Owner Suite",
+    "action": "Promotional Voucher Created",
+    "details": "Activated voucher TESTPROMO20 (20% off)"
+  },
+  {
+    "id": "act-1789014998455",
+    "timestamp": "2026-09-10T04:36:38.455Z",
+    "author": "Owner Suite",
+    "action": "Promotional Voucher Deleted",
+    "details": "Decommissioned voucher WELCOME1000"
+  },
+  {
+    "id": "act-1789014996550",
+    "timestamp": "2026-09-10T04:36:36.550Z",
+    "author": "Owner Suite",
+    "action": "Promotional Voucher Deleted",
+    "details": "Decommissioned voucher PREMIUM500"
+  },
+  {
+    "id": "act-1789014962389",
+    "timestamp": "2026-09-10T04:36:02.389Z",
+    "author": "Staff Terminal",
+    "action": "Stock Status Revised",
+    "details": "\"iPhone 15\" marked as IN STOCK"
+  },
+  {
+    "id": "act-1789014961550",
+    "timestamp": "2026-09-10T04:36:01.550Z",
+    "author": "Staff Terminal",
+    "action": "Stock Status Revised",
+    "details": "\"iPhone 15 Pro Max\" marked as IN STOCK"
+  },
+  {
+    "id": "act-1789014960972",
+    "timestamp": "2026-09-10T04:36:00.972Z",
+    "author": "Staff Terminal",
+    "action": "Stock Status Revised",
+    "details": "\"iPhone 16\" marked as IN STOCK"
+  },
+  {
+    "id": "act-1789014960273",
+    "timestamp": "2026-09-10T04:36:00.273Z",
+    "author": "Staff Terminal",
+    "action": "Stock Status Revised",
+    "details": "\"iPhone 16 Plus\" marked as IN STOCK"
+  },
+  {
+    "id": "act-1789014959846",
+    "timestamp": "2026-09-10T04:35:59.846Z",
+    "author": "Staff Terminal",
+    "action": "Stock Status Revised",
+    "details": "\"iPhone 16 Pro\" marked as IN STOCK"
+  },
+  {
+    "id": "act-1789014944477",
+    "timestamp": "2026-09-10T04:35:44.477Z",
+    "author": "Owner Suite",
+    "action": "Promotional Voucher Deleted",
+    "details": "Decommissioned voucher ROYAL10"
+  },
+  {
+    "id": "act-1789014942218",
+    "timestamp": "2026-09-10T04:35:42.218Z",
+    "author": "Owner Suite",
+    "action": "Promotional Voucher Deleted",
+    "details": "Decommissioned voucher RADHA10"
+  },
+  {
+    "id": "act-1789014729859",
+    "timestamp": "2026-09-10T04:32:09.859Z",
+    "author": "Owner Suite",
+    "action": "Promotional Voucher Deleted",
+    "details": "Decommissioned voucher SUPER20"
+  },
+  {
+    "id": "act-1789014724558",
+    "timestamp": "2026-09-10T04:32:04.558Z",
+    "author": "Owner Suite",
+    "action": "Promotional Voucher Created",
+    "details": "Activated voucher SUPER20 (20% off)"
+  },
+  {
+    "id": "act-1789014598974",
+    "timestamp": "2026-09-10T04:29:58.974Z",
+    "author": "Staff Terminal",
+    "action": "Stock Status Revised",
+    "details": "\"iPhone 16 Pro Max\" marked as IN STOCK"
+  },
+  {
+    "id": "act-1789014595633",
+    "timestamp": "2026-09-10T04:29:55.633Z",
+    "author": "Staff Terminal",
+    "action": "Stock Status Revised",
+    "details": "\"iPhone 16 Pro Max\" marked as OUT OF STOCK"
+  },
+  {
+    "id": "act-1789014276388",
+    "timestamp": "2026-09-10T04:24:36.388Z",
+    "author": "Staff Terminal",
+    "action": "Stock Status Revised",
+    "details": "\"iPhone 16 Pro Max\" marked as IN STOCK"
+  },
+  {
+    "id": "act-1789014273985",
+    "timestamp": "2026-09-10T04:24:33.985Z",
+    "author": "Staff Terminal",
+    "action": "Stock Status Revised",
+    "details": "\"iPhone 16 Pro Max\" marked as OUT OF STOCK"
+  },
+  {
+    "id": "act-1789013809941",
+    "timestamp": "2026-09-10T04:16:49.941Z",
+    "author": "Staff Inventory",
+    "action": "Product Updated",
+    "details": "Updated specifications for \"iPhone 15\""
+  },
+  {
+    "id": "act-1789013809009",
+    "timestamp": "2026-09-10T04:16:49.009Z",
+    "author": "Staff Inventory",
+    "action": "Product Updated",
+    "details": "Updated specifications for \"iPhone 15 Pro Max\""
+  },
+  {
+    "id": "act-1789013808590",
+    "timestamp": "2026-09-10T04:16:48.590Z",
+    "author": "Staff Inventory",
+    "action": "Product Updated",
+    "details": "Updated specifications for \"iPhone 16\""
+  },
+  {
+    "id": "act-1789013807720",
+    "timestamp": "2026-09-10T04:16:47.720Z",
+    "author": "Staff Inventory",
+    "action": "Product Updated",
+    "details": "Updated specifications for \"iPhone 16 Plus\""
+  },
+  {
+    "id": "act-1789013807322",
+    "timestamp": "2026-09-10T04:16:47.322Z",
+    "author": "Staff Inventory",
+    "action": "Product Updated",
+    "details": "Updated specifications for \"iPhone 16 Pro\""
+  },
+  {
+    "id": "act-1789013806736",
+    "timestamp": "2026-09-10T04:16:46.737Z",
+    "author": "Staff Inventory",
+    "action": "Product Updated",
+    "details": "Updated specifications for \"iPhone 16 Pro Max\""
+  },
+  {
+    "id": "act-1788975220097",
+    "timestamp": "2026-09-09T17:33:40.097Z",
+    "author": "Staff Inventory",
+    "action": "Product Updated",
+    "details": "Updated specifications for \"Galaxy S25\""
+  },
+  {
+    "id": "act-1788975219401",
+    "timestamp": "2026-09-09T17:33:39.401Z",
+    "author": "Staff Inventory",
+    "action": "Product Updated",
+    "details": "Updated specifications for \"Galaxy S25\""
+  },
+  {
+    "id": "act-1788974924485",
+    "timestamp": "2026-09-09T17:28:44.486Z",
+    "author": "Staff Inventory",
+    "action": "Product Removed",
+    "details": "Removed \"Titanium Ultra Test Phone\" from showroom catalog"
+  },
+  {
+    "id": "act-1788974924441",
+    "timestamp": "2026-09-09T17:28:44.441Z",
+    "author": "Staff Inventory",
+    "action": "Product Added",
+    "details": "Added \"Titanium Ultra Test Phone\" (₹99,999) to showroom catalog"
+  },
+  {
+    "id": "act-1",
+    "timestamp": "2026-09-09T17:01:09.832Z",
+    "author": "Staff Rohan Sharma",
+    "action": "Dispatched Order",
+    "details": "Order #NR-849201 assigned BlueDart AWB BD-IN-9482014"
+  },
+  {
+    "id": "act-2",
+    "timestamp": "2026-09-09T16:28:09.832Z",
+    "author": "Master Owner",
+    "action": "Updated Announcement",
+    "details": "Published \"Royal Festive Privilege Drop\" with 10% Concession"
+  },
+  {
+    "id": "act-3",
+    "timestamp": "2026-09-09T15:13:09.832Z",
+    "author": "Staff Priya Patel",
+    "action": "Logged Repair Intake",
+    "details": "Service Ticket #REP-101 created for iPhone 15 Pro Max"
+  },
+  {
+    "id": "act-4",
+    "timestamp": "2026-09-09T13:13:09.832Z",
+    "author": "Master Owner",
+    "action": "Inventory Update",
+    "details": "Added 5 units of iPhone 16 Pro Max Desert Titanium"
+  }
+]

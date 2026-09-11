@@ -1,0 +1,34 @@
+[
+  {
+    "code": "RADHA10",
+    "discountType": "percentage",
+    "value": 10,
+    "minCart": 10000,
+    "description": "10% Off on flagship mobile orders",
+    "active": true
+  },
+  {
+    "code": "ROYAL10",
+    "discountType": "percentage",
+    "value": 10,
+    "minCart": 15000,
+    "description": "VIP Showroom Exclusive Concession",
+    "active": true
+  },
+  {
+    "code": "PREMIUM500",
+    "discountType": "flat",
+    "value": 500,
+    "minCart": 5000,
+    "description": "Flat ₹500 instant discount",
+    "active": true
+  },
+  {
+    "code": "WELCOME1000",
+    "discountType": "flat",
+    "value": 1000,
+    "minCart": 25000,
+    "description": "₹1,000 Off on orders above ₹25K",
+    "active": true
+  }
+]

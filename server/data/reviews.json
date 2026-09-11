@@ -1,0 +1,32 @@
+[
+  {
+    "id": "rev-1",
+    "author": "Vikramaditya Singhania",
+    "city": "Bandra West, Mumbai",
+    "product": "iPhone 16 Pro Max (1TB Desert Titanium)",
+    "rating": 5,
+    "date": "3 days ago",
+    "verified": true,
+    "comment": "Received a completely sealed Indian retail box within 3 hours via their BlueDart express rider in Mumbai. Official Apple warranty activated immediately on serial check. Genuine GST tax invoice provided."
+  },
+  {
+    "id": "rev-2",
+    "author": "Pooja Agarwal",
+    "city": "Koregaon Park, Pune",
+    "product": "Samsung Galaxy S25 Ultra (512GB Titanium Silver)",
+    "rating": 5,
+    "date": "1 week ago",
+    "verified": true,
+    "comment": "Opted for 0% No-Cost EMI through HDFC Bank. Seamless approval, zero hidden charges, and exact monthly installment as calculated. Showroom packaging was immaculate."
+  },
+  {
+    "id": "rev-3",
+    "author": "Kunal Deshmukh",
+    "city": "Nariman Point, Mumbai",
+    "product": "Google Pixel 9 Pro Fold (256GB Obsidian)",
+    "rating": 5,
+    "date": "2 weeks ago",
+    "verified": true,
+    "comment": "Purchased directly from the gallery. Official Google India warranty card and instant IMEI validation. The staff even assisted in data transfer. Outstanding concierge experience."
+  }
+]

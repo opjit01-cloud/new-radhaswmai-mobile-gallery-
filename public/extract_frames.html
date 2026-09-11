@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Extract Frames</title>
+</head>
+<body style="background:#111;color:#eee;font-family:sans-serif;padding:20px;">
+  <h2>Extracting Gimbal Video Frames...</h2>
+  <div id="status">Loading video...</div>
+  <progress id="prog" value="0" max="100" style="width:300px;"></progress>
+  <br/><br/>
+  <canvas id="canvas" style="display:none;"></canvas>
+  <video id="video" src="/gimble_video.mp4" muted playsinline preload="auto" style="display:none;"></video>
+
+  <script>
+    const video = document.getElementById('video');
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const statusDiv = document.getElementById('status');
+    const prog = document.getElementById('prog');
+
+    video.onloadedmetadata = async () => {
+      statusDiv.innerText = `Metadata loaded. Duration: ${video.duration}s. Extracting 64 frames...`;
+      canvas.width = 960;
+      canvas.height = 540;
+      const totalFrames = 64;
+      const step = video.duration / totalFrames;
+      const batch = [];
+
+      for (let i = 0; i < totalFrames; i++) {
+        video.currentTime = i * step;
+        await new Promise(r => {
+          video.onseeked = r;
+          setTimeout(r, 80);
+        });
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+        const dataUrl = canvas.toDataURL('image/webp', 0.82);
+        batch.push({ index: i, data: dataUrl });
+        prog.value = Math.round((i / totalFrames) * 100);
+        statusDiv.innerText = `Extracted frame ${i + 1} / ${totalFrames}`;
+      }
+
+      statusDiv.innerText = 'Uploading frames to server...';
+      try {
+        const res = await fetch('http://localhost:5000/api/save-frames', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ frames: batch })
+        });
+        const json = await res.json();
+        statusDiv.innerText = `Done! Successfully saved ${json.count || batch.length} frames to /gimbal_frames/`;
+        document.title = "DONE";
+      } catch (e) {
+        statusDiv.innerText = 'Upload error: ' + e.message;
+      }
+    };
+  </script>
+</body>
+</html>

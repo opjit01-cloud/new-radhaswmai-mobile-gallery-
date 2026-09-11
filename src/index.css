@@ -1,0 +1,375 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-noir: #F8FAFC;
+  --color-noir-card: #FFFFFF;
+  --color-noir-elevated: #F1F5F9;
+  --color-titanium-silver: #0A0B0E;
+  --color-titanium-light: #1E293B;
+  --color-titanium-subtle: #64748B;
+  --color-titanium-border: rgba(0, 0, 0, 0.08);
+  --color-titanium-border-hover: rgba(0, 0, 0, 0.18);
+  --shiny-gradient: linear-gradient(120deg, rgba(17, 24, 39, 0.7) 25%, rgba(0, 0, 0, 1) 50%, rgba(17, 24, 39, 0.7) 75%);
+}
+
+html.dark,
+:root[data-theme="dark"] {
+  --color-noir: #07080A;
+  --color-noir-card: #0F1015;
+  --color-noir-elevated: #15171E;
+  --color-titanium-silver: #FFFFFF;
+  --color-titanium-light: #F1F5F9;
+  --color-titanium-subtle: #94A3B8;
+  --color-titanium-border: rgba(255, 255, 255, 0.09);
+  --color-titanium-border-hover: rgba(255, 255, 255, 0.22);
+  --shiny-gradient: linear-gradient(120deg, rgba(255, 255, 255, 0.45) 30%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0.45) 70%);
+}
+
+html.light,
+:root[data-theme="light"] {
+  --color-noir: #F8FAFC;
+  --color-noir-card: #FFFFFF;
+  --color-noir-elevated: #F1F5F9;
+  --color-titanium-silver: #0A0B0E;
+  --color-titanium-light: #1E293B;
+  --color-titanium-subtle: #64748B;
+  --color-titanium-border: rgba(0, 0, 0, 0.08);
+  --color-titanium-border-hover: rgba(0, 0, 0, 0.18);
+  --shiny-gradient: linear-gradient(120deg, rgba(17, 24, 39, 0.7) 25%, rgba(0, 0, 0, 1) 50%, rgba(17, 24, 39, 0.7) 75%);
+}
+
+html {
+  scroll-padding-top: 90px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  background-color: var(--color-noir);
+  color: var(--color-titanium-silver);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+body.light-mode {
+  background-color: #F8FAFC;
+  color: #0A0B0E;
+}
+
+body.dark-mode {
+  background-color: #07080A;
+  color: #F8FAFC;
+}
+
+/* Luxury Serif Class for Headlines */
+.font-serif-luxury {
+  font-family: 'Cormorant Garamond', Garamond, Georgia, serif;
+  letter-spacing: -0.015em;
+}
+
+/* Custom Refined Platinum/Obsidian Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #07080A;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272A;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #71717A;
+}
+
+/* Ultra-Luxury Liquid Silver / Titanium Chrome Gradient */
+.text-titanium-gradient,
+.text-emerald-gradient {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F1F5F9 40%, #94A3B8 75%, #CBD5E1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Minimalist Dark Glass Header */
+.metallic-glass-header {
+  background: rgba(7, 8, 10, 0.85);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* Ultra-Luxury Titanium Glass Card */
+.metallic-glass-card {
+  background: rgba(15, 16, 21, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+}
+.metallic-glass-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 255, 255, 0.04);
+}
+
+/* High-Contrast Pristine White Luxury Button (Apple / Linear Pro style) */
+.btn-luxury-emerald,
+.btn-luxury-titanium {
+  background: #FFFFFF;
+  color: #07080A;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
+}
+.btn-luxury-emerald:hover,
+.btn-luxury-titanium:hover {
+  background: #F1F5F9;
+  box-shadow: 0 8px 30px rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Luxury Frosted Dark Outline Button */
+.btn-luxury-outline {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+  color: #F8FAFC;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-luxury-outline:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
+}
+
+/* Magnetic Button Utility */
+.magnetic-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  will-change: transform;
+}
+.magnetic-btn:hover {
+  transform: scale(1.05);
+}
+.magnetic-btn:active {
+  transform: scale(0.96) !important;
+}
+
+/* Animations for Logo, Buttons, Tabs & Interactive Elements */
+@keyframes emerald-glow {
+  0%, 100% { opacity: 0.6; filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2)); }
+  50% { opacity: 1; filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.5)); }
+}
+.animate-subtle-glow {
+  animation: emerald-glow 3s ease-in-out infinite;
+}
+
+@keyframes logo-emerald-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 14px rgba(255, 255, 255, 0.15);
+  }
+  50% {
+    transform: scale(1.04);
+    box-shadow: 0 0 28px rgba(255, 255, 255, 0.35);
+  }
+}
+.animate-logo-pulse {
+  animation: logo-emerald-pulse 4s ease-in-out infinite;
+}
+
+
+@keyframes shimmer-sweep {
+  0% { transform: translateX(-100%) rotate(25deg); }
+  100% { transform: translateX(200%) rotate(25deg); }
+}
+.shimmer-button {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer-button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 80%
+  );
+  transform: translateX(-100%) rotate(25deg);
+  transition: none;
+  pointer-events: none;
+}
+.shimmer-button:hover::after {
+  animation: shimmer-sweep 1.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+/* Tab & View Fade-in Animation */
+@keyframes tab-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.animate-tab-in {
+  animation: tab-fade-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Floating Badges */
+@keyframes badge-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+.animate-float-badge {
+  animation: badge-float 3.5s ease-in-out infinite;
+}
+
+/* React Bits: StarBorder Animation */
+@keyframes star-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-star-spin {
+  animation: star-spin linear infinite;
+}
+
+/* React Bits: ShinyText Animation */
+@keyframes shiny-sweep {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+/* Pro React Bits: Aurora Flowing Keyframes */
+@keyframes aurora-1 {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(-18%) rotate(180deg) scale(1.2);
+  }
+}
+.animate-aurora-1 {
+  animation: aurora-1 ease-in-out infinite alternate;
+}
+
+@keyframes aurora-2 {
+  0%, 100% {
+    transform: translate(12%, -12%) rotate(0deg) scale(1.1);
+  }
+  50% {
+    transform: translate(-16%, 16%) rotate(-180deg) scale(0.92);
+  }
+}
+.animate-aurora-2 {
+  animation: aurora-2 ease-in-out infinite alternate;
+}
+
+@keyframes aurora-3 {
+  0%, 100% {
+    transform: translate(-12%, 12%) rotate(0deg) scale(0.95);
+  }
+  50% {
+    transform: translate(16%, -16%) rotate(180deg) scale(1.25);
+  }
+}
+.animate-aurora-3 {
+  animation: aurora-3 ease-in-out infinite alternate;
+}
+
+/* Pro React Bits: Border Beam Keyframe */
+@keyframes border-beam {
+  100% {
+    offset-distance: 100%;
+  }
+}
+.animate-border-beam {
+  animation: border-beam linear infinite;
+}
+
+/* Pro React Bits: Gradient Text Animation */
+@keyframes gradient-text-anim {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Mobile GPU Acceleration & Buttery Smooth Touch Scrolling (100% Lag-Free) */
+@media (max-width: 768px) {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html, body {
+    overscroll-behavior-y: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* GPU layer promotion for smooth scrolling without memory leaks */
+  #hero, #handset-3d-studio, #emi-studio {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  .overflow-y-auto, .overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Prevent iOS Safari auto-zoom on input focus & eliminate screen jumping */
+input,
+select,
+textarea {
+  touch-action: manipulation;
+}
+
+@media screen and (max-width: 850px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+html, body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Safe Area Padding for Modern Mobile Devices (iPhones & Notch Displays) */
+.safe-area-pb {
+  padding-bottom: env(safe-area-inset-bottom, 12px);
+}
+.safe-area-pt {
+  padding-top: env(safe-area-inset-top, 12px);
+}
+

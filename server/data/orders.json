@@ -1,0 +1,116 @@
+[
+  {
+    "orderId": "NR-849201",
+    "timestamp": "2026-09-09T15:13:09.828Z",
+    "customer": {
+      "name": "Vikramaditya Singhania",
+      "phone": "+91 98200 11223",
+      "email": "vikram.singhania@heritage.in",
+      "address": "Bandra West, Mumbai 400050"
+    },
+    "items": [
+      {
+        "id": "iphone-16-pro-max",
+        "name": "iPhone 16 Pro Max (1TB Desert Titanium)",
+        "price": 184900,
+        "qty": 1,
+        "selectedColor": "Desert Titanium",
+        "selectedStorage": "1TB"
+      },
+      {
+        "id": "acc-1",
+        "name": "Apple 240W USB-C Braided Cable",
+        "price": 2900,
+        "qty": 1
+      }
+    ],
+    "total": 187800,
+    "paymentMethod": "Prepaid / HDFC Infinite Card (0% EMI)",
+    "status": "Dispatched",
+    "dispatchSlot": "BlueDart Insured Air Express",
+    "trackingNumber": "BD-IN-9482014",
+    "notes": "VIP customer requested evening delivery with sealed security seal."
+  },
+  {
+    "orderId": "NR-849188",
+    "timestamp": "2026-09-09T12:13:09.828Z",
+    "customer": {
+      "name": "Pooja Agarwal",
+      "phone": "+91 98450 33445",
+      "email": "pooja.a@techcorpmumbai.com",
+      "address": "Koregaon Park, Pune 411001"
+    },
+    "items": [
+      {
+        "id": "galaxy-s25-ultra",
+        "name": "Samsung Galaxy S25 Ultra (512GB Titanium Silver)",
+        "price": 139999,
+        "qty": 1,
+        "selectedColor": "Titanium Silver",
+        "selectedStorage": "512GB"
+      }
+    ],
+    "total": 139999,
+    "paymentMethod": "Prepaid UPI / Axis Bank",
+    "status": "Packaging & Quality Check",
+    "dispatchSlot": "Today 4:00 PM Express Dispatch",
+    "trackingNumber": "BD-IN-8392011",
+    "notes": "Warranty card pre-activated on serial check."
+  },
+  {
+    "orderId": "NR-849140",
+    "timestamp": "2026-09-08T17:13:09.828Z",
+    "customer": {
+      "name": "Kunal Deshmukh",
+      "phone": "+91 98110 55667",
+      "email": "kunal.deshmukh@capitalinvest.com",
+      "address": "Nariman Point, Mumbai 400021"
+    },
+    "items": [
+      {
+        "id": "pixel-9-pro-fold",
+        "name": "Google Pixel 9 Pro Fold (256GB Obsidian)",
+        "price": 172999,
+        "qty": 1,
+        "selectedColor": "Obsidian Black",
+        "selectedStorage": "256GB"
+      },
+      {
+        "id": "sony-wh1000xm5",
+        "name": "Sony WH-1000XM5 Wireless Noise Canceling Headphones",
+        "price": 29990,
+        "qty": 1
+      }
+    ],
+    "total": 202989,
+    "paymentMethod": "0% No-Cost EMI (6 Months SBI Card)",
+    "status": "Delivered",
+    "dispatchSlot": "Delivered by BlueDart Priority Rider",
+    "trackingNumber": "BD-IN-7392182",
+    "notes": "Signed and delivered with official GST invoice."
+  },
+  {
+    "orderId": "NR-849095",
+    "timestamp": "2026-09-07T17:13:09.828Z",
+    "customer": {
+      "name": "Aanya Sharma",
+      "phone": "+91 98700 99881",
+      "email": "aanya.sharma@designstudio.in",
+      "address": "Juhu, Mumbai 400049"
+    },
+    "items": [
+      {
+        "id": "airpods-max",
+        "name": "AirPods Max (USB-C) Space Gray",
+        "price": 59900,
+        "qty": 1
+      }
+    ],
+    "total": 59900,
+    "paymentMethod": "Prepaid UPI",
+    "status": "Delivered",
+    "dispatchSlot": "Delivered with tamper-proof seal",
+    "trackingNumber": "BD-IN-6281920",
+    "notes": "Express 3-hour bike delivery fulfilled."
+  }
+]

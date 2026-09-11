@@ -1,0 +1,26 @@
+[
+  {
+    "id": "QTE-801",
+    "createdAt": "2026-09-09T14:13:09.831Z",
+    "clientName": "Sanjay Singhal (Singhal Exports)",
+    "phone": "+91 98210 99882",
+    "items": [
+      {
+        "name": "iPhone 16 Pro Max 512GB Desert Titanium",
+        "qty": 2,
+        "unitPrice": 164900
+      },
+      {
+        "name": "Apple 20W USB-C Power Adapter",
+        "qty": 2,
+        "unitPrice": 1900
+      }
+    ],
+    "subtotal": 333600,
+    "taxGst": 60048,
+    "total": 393648,
+    "paymentTerms": "50% Advance via RTGS, balance on delivery",
+    "status": "Active Quotation",
+    "validUntil": "2026-09-16"
+  }
+]

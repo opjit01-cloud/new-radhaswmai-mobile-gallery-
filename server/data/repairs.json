@@ -1,0 +1,30 @@
+[
+  {
+    "id": "REP-101",
+    "createdAt": "2026-09-09T13:13:09.831Z",
+    "customerName": "Aditya Birla",
+    "phone": "+91 98201 55443",
+    "device": "iPhone 15 Pro Max",
+    "imei": "354892019482910",
+    "issue": "Cracked Front OLED Glass • Genuine Ceramic Shield Replacement",
+    "technician": "Rohan Sharma (Floor Manager)",
+    "quotedAmount": 28500,
+    "advancePaid": 10000,
+    "status": "Under Diagnosis",
+    "notes": "Customer requires genuine Apple factory display seal for IP68 water resistance."
+  },
+  {
+    "id": "REP-102",
+    "createdAt": "2026-09-08T13:13:09.831Z",
+    "customerName": "Meera Rajput",
+    "phone": "+91 98330 22119",
+    "device": "Samsung Galaxy S24 Ultra",
+    "imei": "864920194827103",
+    "issue": "Battery Health Degradation (<78%) • Official Samsung Li-Ion Pack",
+    "technician": "Kiran Verma (Senior Technician)",
+    "quotedAmount": 6800,
+    "advancePaid": 6800,
+    "status": "Repair Completed",
+    "notes": "New 5000mAh original cell installed. Calibrated and tested to 100% health."
+  }
+]

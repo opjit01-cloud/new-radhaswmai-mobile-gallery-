@@ -1,0 +1,23 @@
+{
+  "announcementText": "Authorized Mobile Gallery • Pithampur, Madhya Pradesh",
+  "announcementBadge": "100% Sealed Indian Stock • BlueDart Insured Air Express",
+  "heroBadge": "iPhone 16 Pro Max • Galaxy S25 Ultra • Pixel 9 Pro Fold",
+  "heroTitle": "Premium Flagship",
+  "heroSubtitle": "Phones & Accessories.",
+  "heroDescription": "India's most trusted destination for original, manufacturer-sealed flagship smartphones. Official brand warranty, instant tax invoice, and 0% interest EMI options.",
+  "themeAccent": "monochrome",
+  "gimbalMode": "follow",
+  "storeAddress": "JHQJ+7PC Vijay Nagar Colony, Pithampur Industrial Area, Madhya Pradesh",
+  "storePhone": "+91 96910 11335",
+  "storeEmail": "support@radhaswamigallery.in",
+  "whatsappNumber": "919691011335",
+  "emiMinCart": 10000,
+  "enabledBanks": [
+    "HDFC Bank",
+    "ICICI Bank",
+    "SBI Card",
+    "Axis Bank",
+    "Bajaj Finserv",
+    "OneCard"
+  ]
+}

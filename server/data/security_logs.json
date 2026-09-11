@@ -1,0 +1,50 @@
+[
+  {
+    "id": "sec-1789022135914",
+    "timestamp": "2026-09-10T06:35:35.914Z",
+    "ip": "::1",
+    "role": "owner",
+    "event": "AUTHENTICATION_SUCCESS",
+    "details": "Whitelisted OWNER verified: jeeban@newradhaswami.com (Jeeban (Master Owner))"
+  },
+  {
+    "id": "sec-1789022135902",
+    "timestamp": "2026-09-10T06:35:35.902Z",
+    "ip": "::1",
+    "role": "owner",
+    "event": "AUTHENTICATION_FAILURE",
+    "details": "Failed access attempt for whitelisted email: jeeban@newradhaswami.com. Remaining attempts: 3"
+  },
+  {
+    "id": "sec-1789022135892",
+    "timestamp": "2026-09-10T06:35:35.892Z",
+    "ip": "::1",
+    "role": "owner",
+    "event": "UNAUTHORIZED_EMAIL_ATTEMPT",
+    "details": "Unauthorized login attempt with email: hacker@malicious.com"
+  },
+  {
+    "id": "sec-1789014903232",
+    "timestamp": "2026-09-10T04:35:03.232Z",
+    "ip": "::1",
+    "role": "owner",
+    "event": "AUTHENTICATION_SUCCESS",
+    "details": "Executive OWNER session established via encrypted token"
+  },
+  {
+    "id": "sec-1789014270839",
+    "timestamp": "2026-09-10T04:24:30.839Z",
+    "ip": "::1",
+    "role": "owner",
+    "event": "AUTHENTICATION_SUCCESS",
+    "details": "Executive OWNER session established via encrypted token"
+  },
+  {
+    "id": "sec-1789014267818",
+    "timestamp": "2026-09-10T04:24:27.818Z",
+    "ip": "::1",
+    "role": "staff",
+    "event": "AUTHENTICATION_SUCCESS",
+    "details": "Executive STAFF session established via encrypted token"
+  }
+]

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- 1. Primary Showroom Atelier Landing Page -->
+  <url>
+    <loc>https://newradhaswami.vercel.app/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://newradhaswami.vercel.app/nrs-logo.png</image:loc>
+      <image:title>New Radhaswami Mobile Gallery - Certified Flagship Handsets</image:title>
+      <image:caption>Premier showroom for sealed Apple, Samsung, Google &amp; OnePlus handsets in Pithampur, MP.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- 2. Dedicated Handset Boutique Shop Page -->
+  <url>
+    <loc>https://newradhaswami.vercel.app/#shop</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 3. 360° Titanium 3D Handset Studio -->
+  <url>
+    <loc>https://newradhaswami.vercel.app/#handset-3d-studio</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 4. 0% No-Cost EMI Financing Studio -->
+  <url>
+    <loc>https://newradhaswami.vercel.app/#emi-studio</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 5. Flagship Comparison Matrix -->
+  <url>
+    <loc>https://newradhaswami.vercel.app/#compare</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 6. Curated Audio & Fast-Charging Accessories -->
+  <url>
+    <loc>https://newradhaswami.vercel.app/#accessories</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 7. Verified Client Endorsements & Reviews -->
+  <url>
+    <loc>https://newradhaswami.vercel.app/#reviews</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>
