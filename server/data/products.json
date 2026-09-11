@@ -200,6 +200,52 @@
     "inStock": true
   },
   {
+    "id": "oneplus-13r",
+    "name": "OnePlus 13R Performance",
+    "brand": "OnePlus",
+    "category": "smartphones",
+    "price": 42999,
+    "originalPrice": 47999,
+    "rating": 4.7,
+    "reviewsCount": 154,
+    "image": "https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&fit=crop&w=800&q=80"
+    ],
+    "colors": [
+      {
+        "name": "Astral Trail",
+        "hex": "#8795A5"
+      },
+      {
+        "name": "Nebula Noir",
+        "hex": "#212226"
+      }
+    ],
+    "storageVariants": [
+      {
+        "size": "128GB",
+        "price": 42999
+      },
+      {
+        "size": "256GB",
+        "price": 46999
+      }
+    ],
+    "tag": "Flagship Killer 2026",
+    "badge": "Value King",
+    "emiStartsAt": 1791,
+    "specs": {
+      "Processor": "Snapdragon 8 Gen 3",
+      "Display": "6.78\" 1.5K 120Hz ProXDR AMOLED",
+      "Battery": "6000mAh with 100W Flash Charge",
+      "Cooling": "Cryo-Velocity Dual Vapor Chamber"
+    },
+    "description": "Uncompromising speed and marathon endurance with flagship silicon at an unmatched competitive price.",
+    "inStock": true
+  },
+  {
     "id": "pixel-9-pro-fold",
     "name": "Google Pixel 9 Pro Fold",
     "brand": "Google",
@@ -243,60 +289,6 @@
       "Camera": "48MP Triple Rear System with Pro Zoom"
     },
     "description": "The thinnest foldable with an expansive 8-inch fluid workspace powered by on-device Gemini Live AI.",
-    "inStock": true
-  },
-  {
-    "id": "pixel-9",
-    "name": "Google Pixel 9 AI",
-    "brand": "Google",
-    "category": "smartphones",
-    "price": 74999,
-    "originalPrice": 79999,
-    "rating": 4.7,
-    "reviewsCount": 178,
-    "image": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80",
-    "images": [
-      "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?auto=format&fit=crop&w=800&q=80"
-    ],
-    "colors": [
-      {
-        "name": "Peony",
-        "hex": "#DF8B9B"
-      },
-      {
-        "name": "Wintergreen",
-        "hex": "#A2C2B3"
-      },
-      {
-        "name": "Porcelain",
-        "hex": "#F1F0EC"
-      },
-      {
-        "name": "Obsidian",
-        "hex": "#222325"
-      }
-    ],
-    "storageVariants": [
-      {
-        "size": "128GB",
-        "price": 74999
-      },
-      {
-        "size": "256GB",
-        "price": 82999
-      }
-    ],
-    "tag": "Smartest Camera",
-    "badge": "Pixel AI",
-    "emiStartsAt": 3124,
-    "specs": {
-      "Processor": "Google Tensor G4",
-      "Camera": "50MP Main + 48MP Macro Ultrawide",
-      "Display": "6.3\" Actua OLED 120Hz (2700 nits)",
-      "Memory": "12GB RAM for native Gemini features"
-    },
-    "description": "Sleek satin glass design with elevated camera visor, 7 years of feature drops, and Google computational excellence.",
     "inStock": true
   }
 ]
