@@ -96,56 +96,6 @@
     "inStock": true
   },
   {
-    "id": "galaxy-s25",
-    "name": "Galaxy S25",
-    "brand": "Samsung",
-    "category": "smartphones",
-    "price": 79999,
-    "originalPrice": 84999,
-    "rating": 4.7,
-    "reviewsCount": 220,
-    "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80",
-    "images": [
-      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=800&q=80"
-    ],
-    "colors": [
-      {
-        "name": "Onyx Black",
-        "hex": "#212224"
-      },
-      {
-        "name": "Marble Gray",
-        "hex": "#D6D7DA"
-      },
-      {
-        "name": "Amber Yellow",
-        "hex": "#E7D8A4"
-      }
-    ],
-    "storageVariants": [
-      {
-        "size": "128GB",
-        "price": 79999
-      },
-      {
-        "size": "256GB",
-        "price": 85999
-      }
-    ],
-    "tag": "Compact Flagship",
-    "badge": "Handy Power",
-    "emiStartsAt": 3333,
-    "specs": {
-      "Processor": "Snapdragon 8 Elite (3nm)",
-      "Camera": "50MP OIS + 12MP Ultra-Wide + 10MP 3x Telephoto",
-      "Display": "6.2\" Dynamic AMOLED 2X FHD+ 120Hz",
-      "Weight": "Only 167 grams ergonomic featherweight"
-    },
-    "description": "Pure flagship power in a pocket-friendly compact chassis with symmetric razor-thin bezels.",
-    "inStock": true
-  },
-  {
     "id": "galaxy-z-flip-6",
     "name": "Galaxy Z Flip 6",
     "brand": "Samsung",
@@ -289,6 +239,60 @@
       "Camera": "48MP Triple Rear System with Pro Zoom"
     },
     "description": "The thinnest foldable with an expansive 8-inch fluid workspace powered by on-device Gemini Live AI.",
+    "inStock": true
+  },
+  {
+    "id": "pixel-9",
+    "name": "Google Pixel 9 AI",
+    "brand": "Google",
+    "category": "smartphones",
+    "price": 74999,
+    "originalPrice": 79999,
+    "rating": 4.7,
+    "reviewsCount": 178,
+    "image": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?auto=format&fit=crop&w=800&q=80"
+    ],
+    "colors": [
+      {
+        "name": "Peony",
+        "hex": "#DF8B9B"
+      },
+      {
+        "name": "Wintergreen",
+        "hex": "#A2C2B3"
+      },
+      {
+        "name": "Porcelain",
+        "hex": "#F1F0EC"
+      },
+      {
+        "name": "Obsidian",
+        "hex": "#222325"
+      }
+    ],
+    "storageVariants": [
+      {
+        "size": "128GB",
+        "price": 74999
+      },
+      {
+        "size": "256GB",
+        "price": 82999
+      }
+    ],
+    "tag": "Smartest Camera",
+    "badge": "Pixel AI",
+    "emiStartsAt": 3124,
+    "specs": {
+      "Processor": "Google Tensor G4",
+      "Camera": "50MP Main + 48MP Macro Ultrawide",
+      "Display": "6.3\" Actua OLED 120Hz (2700 nits)",
+      "Memory": "12GB RAM for native Gemini features"
+    },
+    "description": "Sleek satin glass design with elevated camera visor, 7 years of feature drops, and Google computational excellence.",
     "inStock": true
   }
 ]
