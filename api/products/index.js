@@ -67,12 +67,12 @@ function updateLocalProducts(products) {
 }
 
 async function fetchProductsFromGitHub() {
-  // 1. Primary Raw CDN fetch from opjit01-cloud repo
+  // 1. Primary Raw CDN fetch from opjit01-cloud repo (Public, zero auth, zero rate limit)
   try {
     const rawUrl = `https://raw.githubusercontent.com/${GITHUB_REPO_OWNER}/${GITHUB_REPO_NAME}/main/${PRODUCTS_FILE_PATH}?t=${Date.now()}`;
     const res = await fetch(rawUrl, {
       headers: {
-        'Authorization': `token ${GITHUB_PAT}`
+        'Cache-Control': 'no-cache, no-store, must-revalidate'
       }
     });
     if (res.ok) {
@@ -88,7 +88,11 @@ async function fetchProductsFromGitHub() {
   // 2. Fallback Raw CDN fetch from jeeban22222323-cell repo
   try {
     const fallbackUrl = `https://raw.githubusercontent.com/${FALLBACK_OWNER}/${FALLBACK_NAME}/main/${PRODUCTS_FILE_PATH}?t=${Date.now()}`;
-    const res = await fetch(fallbackUrl);
+    const res = await fetch(fallbackUrl, {
+      headers: {
+        'Cache-Control': 'no-cache, no-store, must-revalidate'
+      }
+    });
     if (res.ok) {
       const data = await res.json();
       if (Array.isArray(data) && data.length > 0) {
@@ -154,17 +158,19 @@ export default async function handler(req, res) {
     return res.status(200).end();
   }
 
-  // GET: Serve real-time catalog instantly with 0 GitHub API rate limits
+  // GET: Serve real-time catalog instantly with live GitHub Raw CDN verification
   if (req.method === 'GET') {
-    let prods = getLocalProducts();
+    let prods = null;
+    try {
+      const gh = await fetchProductsFromGitHub();
+      if (gh && gh.products && Array.isArray(gh.products) && gh.products.length > 0) {
+        prods = gh.products;
+        updateLocalProducts(prods);
+      }
+    } catch {}
+
     if (!prods || prods.length === 0) {
-      try {
-        const gh = await fetchProductsFromGitHub();
-        if (gh.products && Array.isArray(gh.products)) {
-          prods = gh.products;
-          updateLocalProducts(prods);
-        }
-      } catch {}
+      prods = getLocalProducts();
     }
 
     res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0');
