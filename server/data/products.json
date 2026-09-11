@@ -1,56 +1,5 @@
 [
   {
-    "id": "galaxy-s25-plus",
-    "name": "Galaxy S25+",
-    "brand": "Samsung",
-    "category": "smartphones",
-    "price": 99999,
-    "originalPrice": 109999,
-    "rating": 4.8,
-    "reviewsCount": 172,
-    "image": "https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=800&q=80",
-    "images": [
-      "https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80"
-    ],
-    "colors": [
-      {
-        "name": "Onyx Black",
-        "hex": "#212224"
-      },
-      {
-        "name": "Marble Gray",
-        "hex": "#D6D7DA"
-      },
-      {
-        "name": "Cobalt Violet",
-        "hex": "#4F4C62"
-      }
-    ],
-    "storageVariants": [
-      {
-        "size": "256GB",
-        "price": 99999
-      },
-      {
-        "size": "512GB",
-        "price": 111999
-      }
-    ],
-    "tag": "Quad HD+ Glory",
-    "badge": "New Arrival",
-    "emiStartsAt": 4166,
-    "specs": {
-      "Processor": "Snapdragon 8 Elite (3nm)",
-      "Camera": "50MP Dual Pixel OIS + 12MP Ultra-Wide + 10MP 3x",
-      "Display": "6.7\" Dynamic AMOLED 2X QHD+ 120Hz",
-      "Battery": "4900mAh with 45W Fast Charging"
-    },
-    "description": "Immersive QHD+ visual canvas, Armor Aluminum frame, and intelligent Galaxy AI live translation suite.",
-    "inStock": true
-  },
-  {
     "id": "galaxy-s25",
     "name": "Galaxy S25",
     "brand": "Samsung",
