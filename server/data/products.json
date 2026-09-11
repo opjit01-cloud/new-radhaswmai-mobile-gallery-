@@ -51,6 +51,56 @@
     "inStock": true
   },
   {
+    "id": "galaxy-s25",
+    "name": "Galaxy S25",
+    "brand": "Samsung",
+    "category": "smartphones",
+    "price": 79999,
+    "originalPrice": 84999,
+    "rating": 4.7,
+    "reviewsCount": 220,
+    "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=800&q=80"
+    ],
+    "colors": [
+      {
+        "name": "Onyx Black",
+        "hex": "#212224"
+      },
+      {
+        "name": "Marble Gray",
+        "hex": "#D6D7DA"
+      },
+      {
+        "name": "Amber Yellow",
+        "hex": "#E7D8A4"
+      }
+    ],
+    "storageVariants": [
+      {
+        "size": "128GB",
+        "price": 79999
+      },
+      {
+        "size": "256GB",
+        "price": 85999
+      }
+    ],
+    "tag": "Compact Flagship",
+    "badge": "Handy Power",
+    "emiStartsAt": 3333,
+    "specs": {
+      "Processor": "Snapdragon 8 Elite (3nm)",
+      "Camera": "50MP OIS + 12MP Ultra-Wide + 10MP 3x Telephoto",
+      "Display": "6.2\" Dynamic AMOLED 2X FHD+ 120Hz",
+      "Weight": "Only 167 grams ergonomic featherweight"
+    },
+    "description": "Pure flagship power in a pocket-friendly compact chassis with symmetric razor-thin bezels.",
+    "inStock": true
+  },
+  {
     "id": "galaxy-z-flip-6",
     "name": "Galaxy Z Flip 6",
     "brand": "Samsung",
@@ -148,52 +198,6 @@
       "Cooling": "Cryo-Velocity Dual Vapor Chamber"
     },
     "description": "Uncompromising speed and marathon endurance with flagship silicon at an unmatched competitive price.",
-    "inStock": true
-  },
-  {
-    "id": "pixel-9-pro-fold",
-    "name": "Google Pixel 9 Pro Fold",
-    "brand": "Google",
-    "category": "smartphones",
-    "price": 172999,
-    "originalPrice": 184999,
-    "rating": 4.8,
-    "reviewsCount": 112,
-    "image": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80",
-    "images": [
-      "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=800&q=80"
-    ],
-    "colors": [
-      {
-        "name": "Obsidian",
-        "hex": "#262627"
-      },
-      {
-        "name": "Porcelain",
-        "hex": "#EBEAE5"
-      }
-    ],
-    "storageVariants": [
-      {
-        "size": "256GB",
-        "price": 172999
-      },
-      {
-        "size": "512GB",
-        "price": 189999
-      }
-    ],
-    "tag": "Foldable Pinnacle",
-    "badge": "Trending",
-    "emiStartsAt": 7208,
-    "specs": {
-      "Processor": "Google Tensor G4 with Gemini Nano",
-      "Inner Screen": "8.0\" Super Actua Flex OLED 120Hz",
-      "Outer Screen": "6.3\" Actua Display 120Hz",
-      "Camera": "48MP Triple Rear System with Pro Zoom"
-    },
-    "description": "The thinnest foldable with an expansive 8-inch fluid workspace powered by on-device Gemini Live AI.",
     "inStock": true
   },
   {
