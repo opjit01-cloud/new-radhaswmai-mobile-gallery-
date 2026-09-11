@@ -1,5 +1,432 @@
 [
   {
+    "id": "iphone-16-pro-max",
+    "name": "iPhone 16 Pro Max",
+    "brand": "Apple",
+    "category": "smartphones",
+    "price": 144900,
+    "originalPrice": 159900,
+    "rating": 4.9,
+    "reviewsCount": 342,
+    "image": "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1512054502232-10a0a035d672?auto=format&fit=crop&w=800&q=80"
+    ],
+    "colors": [
+      {
+        "name": "Desert Titanium",
+        "hex": "#C2A387"
+      },
+      {
+        "name": "Natural Titanium",
+        "hex": "#9E9B94"
+      },
+      {
+        "name": "White Titanium",
+        "hex": "#E3E4E5"
+      },
+      {
+        "name": "Black Titanium",
+        "hex": "#3B3B3D"
+      }
+    ],
+    "storageVariants": [
+      {
+        "size": "256GB",
+        "price": 144900
+      },
+      {
+        "size": "512GB",
+        "price": 164900
+      },
+      {
+        "size": "1TB",
+        "price": 184900
+      }
+    ],
+    "tag": "Flagship of 2026",
+    "badge": "Best Seller",
+    "emiStartsAt": 6038,
+    "specs": {
+      "Processor": "Apple A18 Pro (3nm)",
+      "Camera": "48MP Fusion + 48MP Ultra-Wide + 12MP 5x Telephoto",
+      "Display": "6.9\" Super Retina XDR ProMotion 120Hz",
+      "Battery": "Up to 33 hours video playback with MagSafe"
+    },
+    "description": "Forged in Grade 5 titanium with the boundary-pushing A18 Pro chip, Camera Control button, and unmatched battery endurance.",
+    "inStock": true
+  },
+  {
+    "id": "iphone-16-pro",
+    "name": "iPhone 16 Pro",
+    "brand": "Apple",
+    "category": "smartphones",
+    "price": 119900,
+    "originalPrice": 129900,
+    "rating": 4.9,
+    "reviewsCount": 278,
+    "image": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1591337676887-a217a6970a8a?auto=format&fit=crop&w=800&q=80"
+    ],
+    "colors": [
+      {
+        "name": "Desert Titanium",
+        "hex": "#C2A387"
+      },
+      {
+        "name": "Natural Titanium",
+        "hex": "#9E9B94"
+      },
+      {
+        "name": "White Titanium",
+        "hex": "#E3E4E5"
+      },
+      {
+        "name": "Black Titanium",
+        "hex": "#3B3B3D"
+      }
+    ],
+    "storageVariants": [
+      {
+        "size": "128GB",
+        "price": 119900
+      },
+      {
+        "size": "256GB",
+        "price": 129900
+      },
+      {
+        "size": "512GB",
+        "price": 149900
+      },
+      {
+        "size": "1TB",
+        "price": 169900
+      }
+    ],
+    "tag": "Titanium Precision",
+    "badge": "Pro Optics",
+    "emiStartsAt": 4995,
+    "specs": {
+      "Processor": "Apple A18 Pro (3nm)",
+      "Camera": "48MP Fusion + 48MP Ultra-Wide + 12MP 5x Telephoto",
+      "Display": "6.3\" Super Retina XDR ProMotion 120Hz",
+      "Controls": "Dedicated Sapphire Glass Camera Control Key"
+    },
+    "description": "Compact pro ergonomics featuring the revolutionary 5x tetraprism optical zoom and Apple Intelligence architecture.",
+    "inStock": true
+  },
+  {
+    "id": "iphone-16-plus",
+    "name": "iPhone 16 Plus",
+    "brand": "Apple",
+    "category": "smartphones",
+    "price": 89900,
+    "originalPrice": 99900,
+    "rating": 4.8,
+    "reviewsCount": 194,
+    "image": "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?auto=format&fit=crop&w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1589492477829-5e65395b66cc?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1567581935884-3349723552ca?auto=format&fit=crop&w=800&q=80"
+    ],
+    "colors": [
+      {
+        "name": "Ultramarine",
+        "hex": "#4B6B94"
+      },
+      {
+        "name": "Teal",
+        "hex": "#7BA4A8"
+      },
+      {
+        "name": "Pink",
+        "hex": "#E8A5B8"
+      },
+      {
+        "name": "White",
+        "hex": "#F2F2F2"
+      },
+      {
+        "name": "Black",
+        "hex": "#262626"
+      }
+    ],
+    "storageVariants": [
+      {
+        "size": "128GB",
+        "price": 89900
+      },
+      {
+        "size": "256GB",
+        "price": 99900
+      },
+      {
+        "size": "512GB",
+        "price": 119900
+      }
+    ],
+    "tag": "Epic Battery",
+    "badge": "Trending",
+    "emiStartsAt": 3745,
+    "specs": {
+      "Processor": "Apple A18 (3nm)",
+      "Camera": "48MP Fusion 2x Telephoto + 12MP Ultra-Wide Macro",
+      "Display": "6.7\" Super Retina XDR OLED",
+      "Action Button": "Configurable Action Button + Camera Control"
+    },
+    "description": "Vibrant color-infused back glass with class-leading battery longevity, Action Button, and Apple Intelligence.",
+    "inStock": true
+  },
+  {
+    "id": "iphone-16",
+    "name": "iPhone 16",
+    "brand": "Apple",
+    "category": "smartphones",
+    "price": 79900,
+    "originalPrice": 89900,
+    "rating": 4.8,
+    "reviewsCount": 310,
+    "image": "https://images.unsplash.com/photo-1567581935884-3349723552ca?auto=format&fit=crop&w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1567581935884-3349723552ca?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&w=800&q=80"
+    ],
+    "colors": [
+      {
+        "name": "Ultramarine",
+        "hex": "#4B6B94"
+      },
+      {
+        "name": "Teal",
+        "hex": "#7BA4A8"
+      },
+      {
+        "name": "Pink",
+        "hex": "#E8A5B8"
+      },
+      {
+        "name": "White",
+        "hex": "#F2F2F2"
+      },
+      {
+        "name": "Black",
+        "hex": "#262626"
+      }
+    ],
+    "storageVariants": [
+      {
+        "size": "128GB",
+        "price": 79900
+      },
+      {
+        "size": "256GB",
+        "price": 89900
+      },
+      {
+        "size": "512GB",
+        "price": 109900
+      }
+    ],
+    "tag": "Everyday Powerhouse",
+    "badge": "Popular",
+    "emiStartsAt": 3329,
+    "specs": {
+      "Processor": "Apple A18 (3nm)",
+      "Camera": "48MP Fusion + 12MP Ultra-Wide Macro",
+      "Display": "6.1\" Super Retina XDR OLED",
+      "Design": "Aerospace-Grade Aluminum with Ceramic Shield"
+    },
+    "description": "The standard of modern smartphones featuring the new Camera Control key, macro photography, and blazing fast A18 chip.",
+    "inStock": true
+  },
+  {
+    "id": "iphone-15-pro-max",
+    "name": "iPhone 15 Pro Max",
+    "brand": "Apple",
+    "category": "smartphones",
+    "price": 134900,
+    "originalPrice": 149900,
+    "rating": 4.9,
+    "reviewsCount": 420,
+    "image": "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1512054502232-10a0a035d672?auto=format&fit=crop&w=800&q=80"
+    ],
+    "colors": [
+      {
+        "name": "Natural Titanium",
+        "hex": "#9E9B94"
+      },
+      {
+        "name": "Blue Titanium",
+        "hex": "#343B47"
+      },
+      {
+        "name": "White Titanium",
+        "hex": "#E3E4E5"
+      },
+      {
+        "name": "Black Titanium",
+        "hex": "#3B3B3D"
+      }
+    ],
+    "storageVariants": [
+      {
+        "size": "256GB",
+        "price": 134900
+      },
+      {
+        "size": "512GB",
+        "price": 154900
+      },
+      {
+        "size": "1TB",
+        "price": 174900
+      }
+    ],
+    "tag": "Proven Titanium",
+    "badge": "Special Value",
+    "emiStartsAt": 5620,
+    "specs": {
+      "Processor": "Apple A17 Pro (3nm)",
+      "Camera": "48MP Main + 12MP Ultra-Wide + 12MP 5x Optical",
+      "Display": "6.7\" Super Retina XDR ProMotion 120Hz",
+      "Port": "USB-C 3.0 up to 10Gb/s transfer speed"
+    },
+    "description": "Iconic Grade 5 titanium design with A17 Pro chip and console-quality gaming with ray tracing support.",
+    "inStock": true
+  },
+  {
+    "id": "iphone-15",
+    "name": "iPhone 15",
+    "brand": "Apple",
+    "category": "smartphones",
+    "price": 65900,
+    "originalPrice": 79900,
+    "rating": 4.8,
+    "reviewsCount": 388,
+    "image": "https://images.unsplash.com/photo-1591337676887-a217a6970a8a?auto=format&fit=crop&w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1591337676887-a217a6970a8a?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1589492477829-5e65395b66cc?auto=format&fit=crop&w=800&q=80"
+    ],
+    "colors": [
+      {
+        "name": "Black",
+        "hex": "#262626"
+      },
+      {
+        "name": "Blue",
+        "hex": "#D2DBE0"
+      },
+      {
+        "name": "Green",
+        "hex": "#DAE3D7"
+      },
+      {
+        "name": "Yellow",
+        "hex": "#F3E9C4"
+      },
+      {
+        "name": "Pink",
+        "hex": "#F3D5D7"
+      }
+    ],
+    "storageVariants": [
+      {
+        "size": "128GB",
+        "price": 65900
+      },
+      {
+        "size": "256GB",
+        "price": 75900
+      }
+    ],
+    "tag": "Dynamic Island",
+    "badge": "Best Price",
+    "emiStartsAt": 2745,
+    "specs": {
+      "Processor": "Apple A16 Bionic",
+      "Camera": "48MP Main with 2x Telephoto + 12MP Ultra-Wide",
+      "Display": "6.1\" Super Retina XDR OLED Dynamic Island",
+      "Port": "USB-C Universal Charging"
+    },
+    "description": "Dynamic Island interaction, high-resolution 48MP main camera, and durable color-infused frosted back glass.",
+    "inStock": true
+  },
+  {
+    "id": "galaxy-s25-ultra",
+    "name": "Galaxy S25 Ultra",
+    "brand": "Samsung",
+    "category": "smartphones",
+    "price": 129999,
+    "originalPrice": 139999,
+    "rating": 4.8,
+    "reviewsCount": 289,
+    "image": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80"
+    ],
+    "colors": [
+      {
+        "name": "Titanium Silver",
+        "hex": "#B8B9BB"
+      },
+      {
+        "name": "Titanium Black",
+        "hex": "#2B2B2C"
+      },
+      {
+        "name": "Titanium Jade",
+        "hex": "#63796E"
+      },
+      {
+        "name": "Titanium Blue",
+        "hex": "#4A6178"
+      }
+    ],
+    "storageVariants": [
+      {
+        "size": "256GB",
+        "price": 129999
+      },
+      {
+        "size": "512GB",
+        "price": 141999
+      },
+      {
+        "size": "1TB",
+        "price": 159999
+      }
+    ],
+    "tag": "Galaxy AI 2.0",
+    "badge": "Popular",
+    "emiStartsAt": 5416,
+    "specs": {
+      "Processor": "Snapdragon 8 Elite for Galaxy",
+      "Camera": "200MP Wide + 50MP 5x + 50MP Ultra-Wide + 10MP 3x",
+      "Display": "6.8\" Dynamic AMOLED 2X 120Hz Anti-Reflective",
+      "Stylus": "Integrated Bluetooth S-Pen with Remote Gestures"
+    },
+    "description": "The pinnacle of mobile productivity and nightography with built-in S-Pen and next-gen Galaxy AI superpowers.",
+    "inStock": true
+  },
+  {
     "id": "galaxy-s25-plus",
     "name": "Galaxy S25+",
     "brand": "Samsung",
@@ -51,199 +478,623 @@
     "inStock": true
   },
   {
-    "id": "galaxy-s25",
-    "name": "Galaxy S25",
+    "id": "galaxy-z-fold-6",
+    "name": "Galaxy Z Fold 6",
     "brand": "Samsung",
     "category": "smartphones",
-    "price": 79999,
-    "originalPrice": 84999,
-    "rating": 4.7,
-    "reviewsCount": 220,
-    "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80",
+    "price": 164999,
+    "originalPrice": 179999,
+    "rating": 4.9,
+    "reviewsCount": 145,
+    "image": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80",
     "images": [
-      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=800&q=80"
     ],
     "colors": [
-      {
-        "name": "Onyx Black",
-        "hex": "#212224"
-      },
-      {
-        "name": "Marble Gray",
-        "hex": "#D6D7DA"
-      },
-      {
-        "name": "Amber Yellow",
-        "hex": "#E7D8A4"
-      }
-    ],
-    "storageVariants": [
-      {
-        "size": "128GB",
-        "price": 79999
-      },
-      {
-        "size": "256GB",
-        "price": 85999
-      }
-    ],
-    "tag": "Compact Flagship",
-    "badge": "Handy Power",
-    "emiStartsAt": 3333,
-    "specs": {
-      "Processor": "Snapdragon 8 Elite (3nm)",
-      "Camera": "50MP OIS + 12MP Ultra-Wide + 10MP 3x Telephoto",
-      "Display": "6.2\" Dynamic AMOLED 2X FHD+ 120Hz",
-      "Weight": "Only 167 grams ergonomic featherweight"
-    },
-    "description": "Pure flagship power in a pocket-friendly compact chassis with symmetric razor-thin bezels.",
-    "inStock": true
-  },
-  {
-    "id": "galaxy-z-flip-6",
-    "name": "Galaxy Z Flip 6",
-    "brand": "Samsung",
-    "category": "smartphones",
-    "price": 109999,
-    "originalPrice": 119999,
-    "rating": 4.8,
-    "reviewsCount": 167,
-    "image": "https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&w=800&q=80",
-    "images": [
-      "https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&fit=crop&w=800&q=80"
-    ],
-    "colors": [
-      {
-        "name": "Mint",
-        "hex": "#A3D9C9"
-      },
       {
         "name": "Silver Shadow",
         "hex": "#C6C7CA"
       },
       {
-        "name": "Yellow",
-        "hex": "#F0E2A8"
+        "name": "Navy",
+        "hex": "#263147"
       },
       {
-        "name": "Blue",
-        "hex": "#87A9C9"
+        "name": "Pink",
+        "hex": "#E8C5C8"
       }
     ],
     "storageVariants": [
       {
         "size": "256GB",
-        "price": 109999
+        "price": 164999
       },
       {
         "size": "512GB",
-        "price": 121999
+        "price": 176999
+      },
+      {
+        "size": "1TB",
+        "price": 200999
       }
     ],
-    "tag": "FlexCam AI",
-    "badge": "Style Icon",
-    "emiStartsAt": 4583,
+    "tag": "Foldable Masterpiece",
+    "badge": "Executive",
+    "emiStartsAt": 6874,
     "specs": {
-      "Main Screen": "6.7\" Dynamic AMOLED 2X 120Hz",
-      "Flex Window": "3.4\" Super AMOLED Cover Screen",
-      "Camera": "Upgraded 50MP Wide OIS + 12MP Ultra-Wide",
-      "Cooling": "First Flip with Vapor Chamber Cooling"
+      "Inner Display": "7.6\" Dynamic AMOLED 2X 120Hz (2600 nits)",
+      "Cover Screen": "6.3\" Dynamic AMOLED 2X 120Hz",
+      "Processor": "Snapdragon 8 Gen 3 for Galaxy",
+      "Hinge": "Dual-rail FlexHinge with Armor Aluminum"
     },
-    "description": "Iconic compact clamshell folding into your palm with 50MP pro camera and hands-free FlexCam video recording.",
+    "description": "The definitive foldable workstation with boxy industrial titanium edges and seamless multiscreen AI multitasking.",
     "inStock": true
   },
   {
-    "id": "oneplus-13r",
-    "name": "OnePlus 13R Performance",
+    "id": "galaxy-s24-ultra",
+    "name": "Galaxy S24 Ultra",
+    "brand": "Samsung",
+    "category": "smartphones",
+    "price": 114999,
+    "originalPrice": 129999,
+    "rating": 4.8,
+    "reviewsCount": 360,
+    "image": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=800&q=80"
+    ],
+    "colors": [
+      {
+        "name": "Titanium Gray",
+        "hex": "#636365"
+      },
+      {
+        "name": "Titanium Black",
+        "hex": "#262628"
+      },
+      {
+        "name": "Titanium Violet",
+        "hex": "#484457"
+      }
+    ],
+    "storageVariants": [
+      {
+        "size": "256GB",
+        "price": 114999
+      },
+      {
+        "size": "512GB",
+        "price": 124999
+      }
+    ],
+    "tag": "Titanium AI Pioneer",
+    "badge": "Hot Seller",
+    "emiStartsAt": 4791,
+    "specs": {
+      "Processor": "Snapdragon 8 Gen 3 for Galaxy",
+      "Camera": "200MP Quad Tele System with 50MP 5x",
+      "Display": "6.8\" Flat Dynamic AMOLED 2X Gorilla Armor",
+      "S-Pen": "Built-in S-Pen with low latency"
+    },
+    "description": "The titanium powerhouse that pioneered mobile AI with anti-reflective Corning Gorilla Armor and 200MP detail.",
+    "inStock": true
+  },
+  {
+    "id": "oneplus-13",
+    "name": "OnePlus 13 Hasselblad",
     "brand": "OnePlus",
     "category": "smartphones",
-    "price": 42999,
-    "originalPrice": 47999,
+    "price": 69999,
+    "originalPrice": 75999,
     "rating": 4.7,
-    "reviewsCount": 154,
-    "image": "https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&w=800&q=80",
+    "reviewsCount": 198,
+    "image": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&fit=crop&w=800&q=80",
     "images": [
+      "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80"
+    ],
+    "colors": [
+      {
+        "name": "Midnight Ocean",
+        "hex": "#1C2E3D"
+      },
+      {
+        "name": "Arctic White",
+        "hex": "#EAECEE"
+      },
+      {
+        "name": "Obsidian Black",
+        "hex": "#1F1F20"
+      }
+    ],
+    "storageVariants": [
+      {
+        "size": "256GB",
+        "price": 69999
+      },
+      {
+        "size": "512GB",
+        "price": 76999
+      }
+    ],
+    "tag": "Speed Redefined",
+    "badge": "Hot Deal",
+    "emiStartsAt": 2916,
+    "specs": {
+      "Processor": "Snapdragon 8 Elite (3nm)",
+      "Camera": "Triple 50MP Hasselblad Camera Engine",
+      "Display": "6.82\" 2K 120Hz Oriental Screen (4500 nits)",
+      "Battery": "6000mAh Glacier Battery with 100W SuperVOOC"
+    },
+    "description": "Monster performance powered by Snapdragon 8 Elite, massive 6000mAh dual-cell battery, and studio Hasselblad optics.",
+    "inStock": true
+  },
+  {
+    "id": "oneplus-open",
+    "name": "OnePlus Open Foldable",
+    "brand": "OnePlus",
+    "category": "smartphones",
+    "price": 139999,
+    "originalPrice": 149999,
+    "rating": 4.9,
+    "reviewsCount": 138,
+    "image": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&fit=crop&w=800&q=80"
     ],
     "colors": [
       {
-        "name": "Astral Trail",
-        "hex": "#8795A5"
+        "name": "Emerald Dusk",
+        "hex": "#315443"
       },
       {
-        "name": "Nebula Noir",
-        "hex": "#212226"
+        "name": "Voyager Black",
+        "hex": "#222325"
+      }
+    ],
+    "storageVariants": [
+      {
+        "size": "512GB",
+        "price": 139999
+      }
+    ],
+    "tag": "Zero Crease Display",
+    "badge": "Critically Acclaimed",
+    "emiStartsAt": 5833,
+    "specs": {
+      "Inner Screen": "7.82\" Flexi-fluid 2K AMOLED 120Hz",
+      "Cover Screen": "6.31\" 2K 120Hz with Ceramic Guard",
+      "Camera": "Sony LYT-T808 Pixel Stacked Hasselblad Tri-camera",
+      "Multitasking": "Open Canvas simultaneous 3-app fluid layout"
+    },
+    "description": "Featherweight aerospace materials with virtually crease-free inner display and Open Canvas multi-tasking.",
+    "inStock": true
+  },
+  {
+    "id": "oneplus-12",
+    "name": "OnePlus 12 5G",
+    "brand": "OnePlus",
+    "category": "smartphones",
+    "price": 59999,
+    "originalPrice": 69999,
+    "rating": 4.8,
+    "reviewsCount": 312,
+    "image": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&fit=crop&w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&w=800&q=80"
+    ],
+    "colors": [
+      {
+        "name": "Flowy Emerald",
+        "hex": "#2A5547"
+      },
+      {
+        "name": "Silky Black",
+        "hex": "#212224"
+      }
+    ],
+    "storageVariants": [
+      {
+        "size": "256GB",
+        "price": 59999
+      },
+      {
+        "size": "512GB",
+        "price": 65999
+      }
+    ],
+    "tag": "Periscope Zoom",
+    "badge": "Customer Choice",
+    "emiStartsAt": 2499,
+    "specs": {
+      "Processor": "Snapdragon 8 Gen 3",
+      "Camera": "50MP Sony LYT-808 + 64MP 3x Periscope Telephoto",
+      "Display": "6.82\" 2K 120Hz ProXDR (4500 nits)",
+      "Charging": "100W Wired + 50W AIRVOOC Wireless"
+    },
+    "description": "High-end Hasselblad portraiture with 3x periscope zoom and stunning 2K 4500-nit ProXDR display.",
+    "inStock": true
+  },
+  {
+    "id": "pixel-9-pro-xl",
+    "name": "Google Pixel 9 Pro XL",
+    "brand": "Google",
+    "category": "smartphones",
+    "price": 109999,
+    "originalPrice": 124999,
+    "rating": 4.8,
+    "reviewsCount": 156,
+    "image": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80"
+    ],
+    "colors": [
+      {
+        "name": "Obsidian",
+        "hex": "#222325"
+      },
+      {
+        "name": "Porcelain",
+        "hex": "#F1F0EC"
+      },
+      {
+        "name": "Hazel",
+        "hex": "#7E857C"
+      },
+      {
+        "name": "Rose Quartz",
+        "hex": "#E5CECD"
       }
     ],
     "storageVariants": [
       {
         "size": "128GB",
-        "price": 42999
+        "price": 109999
       },
       {
         "size": "256GB",
-        "price": 46999
+        "price": 119999
+      },
+      {
+        "size": "512GB",
+        "price": 132999
       }
     ],
-    "tag": "Flagship Killer 2026",
-    "badge": "Value King",
-    "emiStartsAt": 1791,
+    "tag": "Gemini Nano Inside",
+    "badge": "Pro Optics",
+    "emiStartsAt": 4583,
     "specs": {
-      "Processor": "Snapdragon 8 Gen 3",
-      "Display": "6.78\" 1.5K 120Hz ProXDR AMOLED",
-      "Battery": "6000mAh with 100W Flash Charge",
-      "Cooling": "Cryo-Velocity Dual Vapor Chamber"
+      "Processor": "Google Tensor G4 with Titan M2 Security",
+      "Camera": "50MP Main + 48MP Ultrawide Macro + 48MP 5x Telephoto",
+      "Display": "6.8\" Super Actua OLED 1-120Hz (3000 nits)",
+      "AI": "Magic Cue, Add Me, Pixel Studio & 7 Years OS Updates"
     },
-    "description": "Uncompromising speed and marathon endurance with flagship silicon at an unmatched competitive price.",
+    "description": "The most capable Google Pixel yet, engineered with Gemini AI natively on-device and studio-grade computational photography.",
     "inStock": true
   },
   {
-    "id": "pixel-9-pro-fold",
-    "name": "Google Pixel 9 Pro Fold",
-    "brand": "Google",
+    "id": "vivo-x100-pro",
+    "name": "Vivo X100 Pro Zeiss",
+    "brand": "Vivo",
     "category": "smartphones",
-    "price": 172999,
-    "originalPrice": 184999,
-    "rating": 4.8,
-    "reviewsCount": 112,
-    "image": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80",
+    "price": 89999,
+    "originalPrice": 99999,
+    "rating": 4.9,
+    "reviewsCount": 165,
+    "image": "https://images.unsplash.com/photo-1605236453806-6ff36851218e?auto=format&fit=crop&w=800&q=80",
     "images": [
-      "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1605236453806-6ff36851218e?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1533228896884-c2a41e7f409b?auto=format&fit=crop&w=800&q=80"
     ],
     "colors": [
       {
-        "name": "Obsidian",
-        "hex": "#262627"
+        "name": "Asteroid Black",
+        "hex": "#222326"
       },
       {
-        "name": "Porcelain",
-        "hex": "#EBEAE5"
+        "name": "Sunset Orange",
+        "hex": "#D27237"
       }
     ],
     "storageVariants": [
       {
-        "size": "256GB",
-        "price": 172999
-      },
-      {
         "size": "512GB",
-        "price": 189999
+        "price": 89999
       }
     ],
-    "tag": "Foldable Pinnacle",
-    "badge": "Trending",
-    "emiStartsAt": 7208,
+    "tag": "Zeiss 1-Inch Sensor",
+    "badge": "Camera King",
+    "emiStartsAt": 3749,
     "specs": {
-      "Processor": "Google Tensor G4 with Gemini Nano",
-      "Inner Screen": "8.0\" Super Actua Flex OLED 120Hz",
-      "Outer Screen": "6.3\" Actua Display 120Hz",
-      "Camera": "48MP Triple Rear System with Pro Zoom"
+      "Sensor": "1-Inch Sony IMX989 with Zeiss T* Coating",
+      "Telephoto": "50MP Zeiss APO Floating Telephoto with Sunshot",
+      "Processor": "MediaTek Dimensity 9300 + V3 Imaging Chip",
+      "Battery": "5400mAh with 100W FlashCharge"
     },
-    "description": "The thinnest foldable with an expansive 8-inch fluid workspace powered by on-device Gemini Live AI.",
+    "description": "Dedicated 1-inch sensor optical engineering with Zeiss APO telephoto lens designed for professional mobile portraiture.",
+    "inStock": true
+  },
+  {
+    "id": "xiaomi-14-ultra",
+    "name": "Xiaomi 14 Ultra Leica",
+    "brand": "Xiaomi",
+    "category": "smartphones",
+    "price": 99999,
+    "originalPrice": 119999,
+    "rating": 4.8,
+    "reviewsCount": 142,
+    "image": "https://images.unsplash.com/photo-1533228896884-c2a41e7f409b?auto=format&fit=crop&w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1533228896884-c2a41e7f409b?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1605236453806-6ff36851218e?auto=format&fit=crop&w=800&q=80"
+    ],
+    "colors": [
+      {
+        "name": "Black Vegan Leather",
+        "hex": "#1C1C1D"
+      },
+      {
+        "name": "White Ceramic",
+        "hex": "#F0F0F2"
+      }
+    ],
+    "storageVariants": [
+      {
+        "size": "512GB",
+        "price": 99999
+      }
+    ],
+    "tag": "Leica Quad Camera",
+    "badge": "Optics Master",
+    "emiStartsAt": 4166,
+    "specs": {
+      "Main Sensor": "1-Inch Sony LYT-900 with Stepless Variable Aperture (f/1.63-f/4.0)",
+      "Lenses": "Quad 50MP Leica Summilux System (12mm to 120mm)",
+      "Display": "6.73\" All-Around Liquid AMOLED 120Hz",
+      "Processor": "Snapdragon 8 Gen 3 with Xiaomi IceLoop Cooling"
+    },
+    "description": "Four 50MP Leica lenses covering 12mm to 120mm with stepless variable aperture on a 1-inch LYT-900 sensor.",
+    "inStock": true
+  },
+  {
+    "id": "sony-wh1000xm5",
+    "name": "Sony WH-1000XM5 ANC",
+    "brand": "Sony",
+    "category": "audio",
+    "price": 29990,
+    "originalPrice": 34990,
+    "rating": 4.9,
+    "reviewsCount": 421,
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?auto=format&fit=crop&w=800&q=80"
+    ],
+    "colors": [
+      {
+        "name": "Platinum Silver",
+        "hex": "#D7D8DA"
+      },
+      {
+        "name": "Midnight Black",
+        "hex": "#1C1C1E"
+      }
+    ],
+    "tag": "Industry Best ANC",
+    "badge": "Audiophile",
+    "emiStartsAt": 1249,
+    "specs": {
+      "Noise Cancelling": "Auto NC Optimizer with 8 Microphones",
+      "Audio": "30mm Carbon Fiber unit with LDAC Hi-Res Wireless",
+      "Battery": "30 Hours playback with 3-min quick charge",
+      "Mics": "4 beamforming microphones with AI noise reduction"
+    },
+    "description": "Industry-leading noise cancellation engineered with dual processors and 8 microphones for pure studio silence.",
+    "inStock": true
+  },
+  {
+    "id": "airpods-pro-2-usbc",
+    "name": "Apple AirPods Pro 2 (USB-C)",
+    "brand": "Apple",
+    "category": "audio",
+    "price": 24900,
+    "originalPrice": 26900,
+    "rating": 4.8,
+    "reviewsCount": 512,
+    "image": "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?auto=format&fit=crop&w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?auto=format&fit=crop&w=800&q=80"
+    ],
+    "colors": [
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "tag": "Spatial Immersion",
+    "badge": "Best Seller",
+    "emiStartsAt": 1037,
+    "specs": {
+      "Processor": "Apple H2 Headphone Silicon",
+      "ANC": "Up to 2x more Active Noise Cancellation",
+      "Case": "MagSafe USB-C with Precision Finding Speaker",
+      "Audio": "Personalized Spatial Audio with dynamic head tracking"
+    },
+    "description": "Adaptive Audio, Conversation Awareness, and theater-grade spatial immersion with USB-C convenience.",
+    "inStock": true
+  },
+  {
+    "id": "galaxy-buds-3-pro",
+    "name": "Galaxy Buds 3 Pro",
+    "brand": "Samsung",
+    "category": "audio",
+    "price": 19999,
+    "originalPrice": 22999,
+    "rating": 4.6,
+    "reviewsCount": 88,
+    "image": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=800&q=80"
+    ],
+    "colors": [
+      {
+        "name": "Silver Blade",
+        "hex": "#A8ABB2"
+      },
+      {
+        "name": "Porcelain White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "tag": "Blade Light Design",
+    "badge": "New Arrival",
+    "emiStartsAt": 833,
+    "specs": {
+      "Audio": "Dual-amp 2-way woofer + planar tweeter (24-bit 96kHz)",
+      "ANC": "Adaptive Noise Control & Ambient Sound",
+      "Design": "Iconic Blade lighting with pinch and swipe gestures"
+    },
+    "description": "All-new ergonomic blade design with immersive 24-bit Hi-Fi sound and intelligent conversational awareness.",
+    "inStock": true
+  },
+  {
+    "id": "apple-watch-ultra-2",
+    "name": "Apple Watch Ultra 2 Titanium",
+    "brand": "Apple",
+    "category": "watches",
+    "price": 89900,
+    "originalPrice": 94900,
+    "rating": 4.9,
+    "reviewsCount": 167,
+    "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80"
+    ],
+    "colors": [
+      {
+        "name": "Natural Titanium",
+        "hex": "#9E9B94"
+      },
+      {
+        "name": "Black Titanium",
+        "hex": "#2A2A2B"
+      }
+    ],
+    "tag": "Aerospace Grade",
+    "badge": "Extreme Explorer",
+    "emiStartsAt": 3745,
+    "specs": {
+      "Case": "49mm Aerospace Titanium with Sapphire front crystal",
+      "Display": "3000 nits Always-On Retina Display",
+      "GPS": "Precision dual-frequency GPS (L1 and L5)",
+      "Water Resistance": "100m water resistant with EN13319 dive certification"
+    },
+    "description": "The ultimate sports and adventure watch forged from recycled titanium with 36-hour normal battery life.",
+    "inStock": true
+  },
+  {
+    "id": "galaxy-watch-ultra",
+    "name": "Samsung Galaxy Watch Ultra",
+    "brand": "Samsung",
+    "category": "watches",
+    "price": 59999,
+    "originalPrice": 64999,
+    "rating": 4.7,
+    "reviewsCount": 94,
+    "image": "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=800&q=80"
+    ],
+    "colors": [
+      {
+        "name": "Titanium Gray",
+        "hex": "#58595B"
+      },
+      {
+        "name": "Titanium White",
+        "hex": "#EEEEEE"
+      },
+      {
+        "name": "Titanium Silver",
+        "hex": "#B8B9BB"
+      }
+    ],
+    "tag": "Extreme Durability",
+    "badge": "Flagship Wearable",
+    "emiStartsAt": 2499,
+    "specs": {
+      "Durability": "10ATM + IP68 + MIL-STD-810H Grade 4 Titanium",
+      "Sensors": "BioActive Sensor (ECG, Heart Rate, BIA, Blood Oxygen)",
+      "Battery": "Up to 100 hours in Power Saving mode"
+    },
+    "description": "Built to push physical boundaries with cushion design, emergency siren, and multisport athletic tracking.",
+    "inStock": true
+  },
+  {
+    "id": "apple-magsafe-duo",
+    "name": "Apple MagSafe Duo Wireless Charger",
+    "brand": "Apple",
+    "category": "chargers",
+    "price": 13900,
+    "originalPrice": 14900,
+    "rating": 4.7,
+    "reviewsCount": 88,
+    "image": "https://images.unsplash.com/photo-1622445262464-84b1456045b6?auto=format&fit=crop&w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1622445262464-84b1456045b6?auto=format&fit=crop&w=800&q=80"
+    ],
+    "colors": [
+      {
+        "name": "White",
+        "hex": "#FFFFFF"
+      }
+    ],
+    "tag": "Foldable Travel",
+    "badge": "Essential",
+    "emiStartsAt": 579,
+    "specs": {
+      "Charging": "Dual magnetic wireless induction (iPhone + Apple Watch)",
+      "Portability": "Precision folding hinge fits in any pocket",
+      "Compatibility": "Qi-certified devices, AirPods with Wireless Case"
+    },
+    "description": "Conveniently charges your compatible iPhone, Apple Watch, and wireless charging case all in one compact fold.",
+    "inStock": true
+  },
+  {
+    "id": "anker-prime-250w",
+    "name": "Anker Prime 250W GaN Power Bank",
+    "brand": "Anker",
+    "category": "chargers",
+    "price": 17999,
+    "originalPrice": 20999,
+    "rating": 4.9,
+    "reviewsCount": 204,
+    "image": "https://images.unsplash.com/photo-1609592426508-cc2a35368a5c?auto=format&fit=crop&w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1609592426508-cc2a35368a5c?auto=format&fit=crop&w=800&q=80"
+    ],
+    "colors": [
+      {
+        "name": "Space Gray",
+        "hex": "#3E424B"
+      }
+    ],
+    "tag": "27,650mAh Beast",
+    "badge": "Powerhouse",
+    "emiStartsAt": 750,
+    "specs": {
+      "Output": "250W Total Multi-device Output (140W Single Port)",
+      "Capacity": "27,650mAh airline-approved monster capacity",
+      "Display": "Full-color smart digital display with real-time wattage and health"
+    },
+    "description": "Supercharge 2 laptops and a phone simultaneously with smart app Bluetooth control and 170W ultra-fast recharge.",
     "inStock": true
   }
 ]
