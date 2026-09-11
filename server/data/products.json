@@ -200,49 +200,49 @@
     "inStock": true
   },
   {
-    "id": "oneplus-13r",
-    "name": "OnePlus 13R Performance",
-    "brand": "OnePlus",
+    "id": "pixel-9-pro-fold",
+    "name": "Google Pixel 9 Pro Fold",
+    "brand": "Google",
     "category": "smartphones",
-    "price": 42999,
-    "originalPrice": 47999,
-    "rating": 4.7,
-    "reviewsCount": 154,
-    "image": "https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&w=800&q=80",
+    "price": 172999,
+    "originalPrice": 184999,
+    "rating": 4.8,
+    "reviewsCount": 112,
+    "image": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80",
     "images": [
-      "https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=800&q=80"
     ],
     "colors": [
       {
-        "name": "Astral Trail",
-        "hex": "#8795A5"
+        "name": "Obsidian",
+        "hex": "#262627"
       },
       {
-        "name": "Nebula Noir",
-        "hex": "#212226"
+        "name": "Porcelain",
+        "hex": "#EBEAE5"
       }
     ],
     "storageVariants": [
       {
-        "size": "128GB",
-        "price": 42999
+        "size": "256GB",
+        "price": 172999
       },
       {
-        "size": "256GB",
-        "price": 46999
+        "size": "512GB",
+        "price": 189999
       }
     ],
-    "tag": "Flagship Killer 2026",
-    "badge": "Value King",
-    "emiStartsAt": 1791,
+    "tag": "Foldable Pinnacle",
+    "badge": "Trending",
+    "emiStartsAt": 7208,
     "specs": {
-      "Processor": "Snapdragon 8 Gen 3",
-      "Display": "6.78\" 1.5K 120Hz ProXDR AMOLED",
-      "Battery": "6000mAh with 100W Flash Charge",
-      "Cooling": "Cryo-Velocity Dual Vapor Chamber"
+      "Processor": "Google Tensor G4 with Gemini Nano",
+      "Inner Screen": "8.0\" Super Actua Flex OLED 120Hz",
+      "Outer Screen": "6.3\" Actua Display 120Hz",
+      "Camera": "48MP Triple Rear System with Pro Zoom"
     },
-    "description": "Uncompromising speed and marathon endurance with flagship silicon at an unmatched competitive price.",
+    "description": "The thinnest foldable with an expansive 8-inch fluid workspace powered by on-device Gemini Live AI.",
     "inStock": true
   },
   {
