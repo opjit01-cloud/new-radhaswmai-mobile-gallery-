@@ -1,5 +1,28 @@
 [
   {
+    "id": "test-sync-1789123697115",
+    "name": "Realtime Sync Test Phone",
+    "brand": "Apple",
+    "category": "smartphones",
+    "price": 99999,
+    "originalPrice": 109999,
+    "rating": 5,
+    "reviewsCount": 1,
+    "image": "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=800&q=80",
+    "colors": [
+      {
+        "name": "Black",
+        "hex": "#000000",
+        "inStock": true
+      }
+    ],
+    "specs": {
+      "Test": "Live Sync Test"
+    },
+    "description": "Verifying instant cross-device sync",
+    "inStock": true
+  },
+  {
     "id": "iphone-16-pro-max",
     "name": "iPhone 16 Pro Max",
     "brand": "Apple",
