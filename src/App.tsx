@@ -47,20 +47,20 @@ export const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<'showroom' | 'shop'>('showroom');
   const [portalRole, setPortalRole] = useState<'staff' | 'owner' | null>(null);
 
-  // Products from backend & local persistence
-  const [catalogProducts, setCatalogProducts] = useState<Product[]>(() => {
-    try {
-      const saved = localStorage.getItem('nr_catalog_products');
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
-      }
-    } catch {}
-    return PRODUCTS;
-  });
+  // Products from live cloud database (ZERO localStorage)
+  const [catalogProducts, setCatalogProducts] = useState<Product[]>(PRODUCTS);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [activeSalon, setActiveSalon] = useState<string>('all');
   const [focusedMode, setFocusedMode] = useState<boolean>(false);
+
+  // Proactively erase any legacy catalog cache from localStorage
+  useEffect(() => {
+    try {
+      localStorage.removeItem('nr_catalog_products');
+      localStorage.removeItem('nr_products_last_updated');
+      localStorage.removeItem('nr_deleted_product_ids');
+    } catch {}
+  }, []);
 
   // User-isolated Cart Storage Helper
   const getCartStorageKey = (user: { phone?: string } | null) => {
@@ -301,49 +301,25 @@ export const App: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Fetch live products from backend and sync with persistent storage without jitter
+  // Fetch live products directly from cloud database without any localStorage caching
   const fetchProducts = () => {
     fetchLiveProducts()
       .then(prods => {
-        if (Array.isArray(prods)) {
-          setCatalogProducts(prev => {
-            const isIdentical = prev.length === prods.length && prev.every((p, idx) => {
-              const q = prods[idx];
-              return q && 
-                p.id === q.id && 
-                p.price === q.price && 
-                p.inStock === q.inStock && 
-                p.name === q.name && 
-                p.image === q.image &&
-                p.badge === q.badge &&
-                p.tag === q.tag;
-            });
-            if (isIdentical) {
-              return prev;
-            }
-            return prods;
-          });
+        if (Array.isArray(prods) && prods.length > 0) {
+          setCatalogProducts(prods);
         }
       })
       .catch(() => {
-        try {
-          const saved = localStorage.getItem('nr_catalog_products');
-          if (saved) {
-            const parsed = JSON.parse(saved);
-            if (Array.isArray(parsed)) {
-              setCatalogProducts(parsed);
-            }
-          }
-        } catch {}
+        setCatalogProducts(prev => (prev && prev.length > 0 ? prev : PRODUCTS));
       });
   };
 
-  // Real-time synchronization: 2.5s polling, BroadcastChannel, tab focus, visibility change, and storage broadcast
+  // Real-time synchronization: 2.5s live polling, BroadcastChannel, tab focus, and visibility change
   useEffect(() => {
     fetchProducts();
 
-    // Efficient 3.5s poll for real-time cross-device updates without CPU thrashing
-    const pollInterval = setInterval(fetchProducts, 3500);
+    // 2.5s poll for real-time cross-device updates (PC & Phone in exact sync)
+    const pollInterval = setInterval(fetchProducts, 2500);
 
     const handleVisibility = () => {
       if (document.visibilityState === 'visible') {
@@ -352,14 +328,6 @@ export const App: React.FC = () => {
     };
     window.addEventListener('visibilitychange', handleVisibility);
     window.addEventListener('focus', fetchProducts);
-
-    // Cross-tab and portal sync events
-    const handleStorageChange = (e: StorageEvent) => {
-      if (e.key === 'nr_catalog_products' || e.key === 'nr_products_last_updated') {
-        fetchProducts();
-      }
-    };
-    window.addEventListener('storage', handleStorageChange);
 
     const handleCustomUpdate = () => {
       fetchProducts();
@@ -379,11 +347,10 @@ export const App: React.FC = () => {
 
     return () => {
       clearInterval(pollInterval);
-      if (bc) bc.close();
-      window.removeEventListener('visibilitychange', handleVisibility);
+      document.removeEventListener('visibilitychange', handleVisibility);
       window.removeEventListener('focus', fetchProducts);
-      window.removeEventListener('storage', handleStorageChange);
       window.removeEventListener('nr_catalog_updated', handleCustomUpdate);
+      if (bc) bc.close();
     };
   }, []);
 

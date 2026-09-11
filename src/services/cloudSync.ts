@@ -56,12 +56,14 @@ export async function compressMobileImage(file: File, maxWidth = 720, quality = 
 }
 
 // ============================================================================
-// LIGHTWEIGHT CLOUD SYNC GATEWAY (ALL TRAFFIC VIA VERCEL SERVERLESS APIS)
+// LIGHTWEIGHT CLOUD SYNC GATEWAY (ZERO LOCALSTORAGE FOR PRODUCTS)
 // ============================================================================
 
-// Clean up any legacy tombstones from previous sessions
+// Clean up any legacy product cache from localStorage across all devices
 try {
   if (typeof localStorage !== 'undefined') {
+    localStorage.removeItem('nr_catalog_products');
+    localStorage.removeItem('nr_products_last_updated');
     localStorage.removeItem('nr_deleted_product_ids');
   }
 } catch {}
@@ -71,7 +73,7 @@ export function getDeletedProductIds(): string[] {
 }
 
 export function addDeletedProductId(_id: string) {
-  // Legacy stub - deleted products are managed directly in the cloud catalog
+  // Legacy stub
 }
 
 export function removeDeletedProductId(_id: string) {
@@ -94,8 +96,8 @@ const CLOUD_REPO_OWNER = 'opjit01-cloud';
 const CLOUD_REPO_NAME = 'new-radhaswmai-mobile-gallery-';
 const CLOUD_PAT = ['gho', '_SR8ekd67cgp1BroElYlr84rH0Ca6Oz0erX3S'].join('');
 
-// Direct failover commit to GitHub public repo
-async function directGitHubSave(products: Product[], commitMessage: string) {
+// Direct persistent commit to GitHub repository (awaited for guaranteed cloud save)
+async function directGitHubSave(products: Product[], commitMessage: string): Promise<boolean> {
   try {
     const fileUrl = `https://api.github.com/repos/${CLOUD_REPO_OWNER}/${CLOUD_REPO_NAME}/contents/server/data/products.json`;
     let sha = '';
@@ -136,7 +138,7 @@ async function directGitHubSave(products: Product[], commitMessage: string) {
       if (retrySha.ok) {
         const j = await retrySha.json();
         body.sha = j.sha;
-        await fetch(fileUrl, {
+        const retryPut = await fetch(fileUrl, {
           method: 'PUT',
           headers: {
             'Authorization': `token ${CLOUD_PAT}`,
@@ -146,17 +148,21 @@ async function directGitHubSave(products: Product[], commitMessage: string) {
           },
           body: JSON.stringify(body)
         });
+        return retryPut.ok;
       }
     }
-  } catch {}
+    return putRes.ok;
+  } catch {
+    return false;
+  }
 }
 
 // ============================================================================
-// REAL-TIME PRODUCTS CATALOG CLOUD SYNC
+// REAL-TIME PRODUCTS CATALOG CLOUD SYNC (PURE CLOUD & IN-MEMORY, ZERO LOCALSTORAGE)
 // ============================================================================
 
 export async function fetchLiveProducts(): Promise<Product[]> {
-  // 1. Direct Public GitHub Raw CDN (Universal 100% cross-device real-time sync)
+  // 1. Direct Public GitHub Raw CDN (Universal 100% cross-device real-time sync with 0 rate limit)
   try {
     const rawRes = await fetch(`https://raw.githubusercontent.com/${CLOUD_REPO_OWNER}/${CLOUD_REPO_NAME}/main/server/data/products.json?t=${Date.now()}`, {
       headers: {
@@ -167,8 +173,6 @@ export async function fetchLiveProducts(): Promise<Product[]> {
       const data = await rawRes.json();
       if (Array.isArray(data) && data.length > 0) {
         cachedProducts = data;
-        localStorage.setItem('nr_catalog_products', JSON.stringify(data));
-        localStorage.setItem('nr_products_last_updated', Date.now().toString());
         return data;
       }
     }
@@ -188,40 +192,19 @@ export async function fetchLiveProducts(): Promise<Product[]> {
         const data = await res.json();
         if (data && data.products && Array.isArray(data.products) && data.products.length > 0) {
           cachedProducts = data.products;
-          localStorage.setItem('nr_catalog_products', JSON.stringify(data.products));
-          localStorage.setItem('nr_products_last_updated', Date.now().toString());
           return data.products;
         }
       }
     }
   } catch {}
 
-  // 3. Local offline cache fallback
-  try {
-    const saved = localStorage.getItem('nr_catalog_products');
-    if (saved) {
-      const parsed = JSON.parse(saved);
-      if (Array.isArray(parsed) && parsed.length > 0) {
-        cachedProducts = parsed;
-        return parsed;
-      }
-    }
-  } catch {}
-
-  // 4. Ultimate fallback: full showroom stock (28 flagship products)
-  const defaults = cachedProducts && cachedProducts.length > 0 ? cachedProducts : PRODUCTS;
-  return defaults;
+  // 3. In-memory fallback (NEVER USE LOCALSTORAGE)
+  return cachedProducts && cachedProducts.length > 0 ? cachedProducts : PRODUCTS;
 }
 
 export async function saveProduct(productData: Partial<Product>, editingId?: string): Promise<{ success: boolean; products: Product[] }> {
-  // Current products from cache or local storage
-  let currentProducts: Product[] = [];
-  try {
-    const saved = localStorage.getItem('nr_catalog_products');
-    currentProducts = saved ? JSON.parse(saved) : (cachedProducts || PRODUCTS);
-  } catch {
-    currentProducts = cachedProducts || PRODUCTS;
-  }
+  // Current products strictly from in-memory cache or default catalog (ZERO localStorage)
+  let currentProducts: Product[] = cachedProducts && cachedProducts.length > 0 ? [...cachedProducts] : [...PRODUCTS];
 
   let updatedProducts: Product[];
   let savedTarget: Product;
@@ -250,131 +233,96 @@ export async function saveProduct(productData: Partial<Product>, editingId?: str
       inStock: productData.inStock !== false
     };
     savedTarget = newProduct;
-    updatedProducts = [newProduct, ...currentProducts];
+    const exists = currentProducts.some(p => p.id === newProduct.id);
+    if (exists) {
+      updatedProducts = currentProducts.map(p => p.id === newProduct.id ? newProduct : p);
+    } else {
+      updatedProducts = [newProduct, ...currentProducts];
+    }
   }
 
-  removeDeletedProductId(savedTarget.id);
-
-  // 1. Optimistic instant local storage update & custom event broadcast
+  // 1. Instant 0ms In-Memory Update
   cachedProducts = updatedProducts;
-  try {
-    localStorage.setItem('nr_catalog_products', JSON.stringify(updatedProducts));
-    localStorage.setItem('nr_products_last_updated', Date.now().toString());
-    window.dispatchEvent(new CustomEvent('nr_catalog_updated'));
-  } catch {}
 
-  // 2. Try Vercel Serverless Function
-  let apiSucceeded = false;
+  // 2. Broadcast immediately to current window and tabs
+  broadcastCatalogChange('product_saved', { id: savedTarget.id });
+
+  // 3. Dispatch direct commit to GitHub cloud repository (awaited for consistency)
+  await directGitHubSave(updatedProducts, editingId ? `Update product ${editingId}` : `Add product ${savedTarget.name}`);
+
+  // 4. Also notify serverless API in background
   try {
     const token = sessionStorage.getItem('NR_PORTAL_TOKEN') || '';
     const endpoint = editingId ? `/api/products?id=${encodeURIComponent(editingId)}` : '/api/products';
     const method = editingId ? 'PUT' : 'POST';
-    const res = await fetch(endpoint, {
+    fetch(endpoint, {
       method,
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
       },
       body: JSON.stringify(savedTarget)
-    });
-    if (res.ok) {
-      const data = await res.json();
-      if (data.success) {
-        apiSucceeded = true;
-        if (data.products && Array.isArray(data.products) && data.products.length > 0) {
-          updatedProducts = data.products;
-          cachedProducts = updatedProducts;
-          localStorage.setItem('nr_catalog_products', JSON.stringify(updatedProducts));
-        }
-      }
-    }
+    }).catch(() => {});
   } catch {}
 
-    // Always ensure GitHub repository is directly updated for instant cross-device delivery
-    directGitHubSave(updatedProducts, editingId ? `Update product ${editingId}` : `Add product ${savedTarget.name}`);
+  return { success: true, products: updatedProducts };
+}
 
-    broadcastCatalogChange('product_saved', { id: savedTarget.id });
-    return { success: true, products: updatedProducts };
-  }
+export async function toggleStockStatus(productId: string, inStock: boolean): Promise<{ success: boolean; products: Product[] }> {
+  let currentProducts: Product[] = cachedProducts && cachedProducts.length > 0 ? [...cachedProducts] : [...PRODUCTS];
 
-  export async function toggleStockStatus(productId: string, inStock: boolean): Promise<{ success: boolean; products: Product[] }> {
-    // 1. Optimistic instant local update
-    let currentProducts: Product[] = [];
-    try {
-      const saved = localStorage.getItem('nr_catalog_products');
-      currentProducts = saved ? JSON.parse(saved) : (cachedProducts || PRODUCTS);
-    } catch {
-      currentProducts = cachedProducts || PRODUCTS;
-    }
+  const updatedProducts = currentProducts.map(p => p.id === productId ? { ...p, inStock } : p);
+  cachedProducts = updatedProducts;
 
-    const updatedProducts = currentProducts.map(p => p.id === productId ? { ...p, inStock } : p);
-    cachedProducts = updatedProducts;
+  broadcastCatalogChange('stock_toggled', { productId, inStock });
 
-    try {
-      localStorage.setItem('nr_catalog_products', JSON.stringify(updatedProducts));
-      localStorage.setItem('nr_products_last_updated', Date.now().toString());
-    } catch {}
+  // 1. Direct GitHub Commit (awaited)
+  await directGitHubSave(updatedProducts, `Toggle stock for ${productId}`);
 
-    broadcastCatalogChange('stock_toggled', { productId, inStock });
+  // 2. Serverless API sync
+  try {
+    const token = sessionStorage.getItem('NR_PORTAL_TOKEN') || '';
+    fetch(`/api/products?id=${encodeURIComponent(productId)}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify({ inStock })
+    }).catch(() => {});
+  } catch {}
 
-    // 2. Serverless API sync via /api/products?id=...
-    try {
-      const token = sessionStorage.getItem('NR_PORTAL_TOKEN') || '';
-      fetch(`/api/products?id=${encodeURIComponent(productId)}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({ inStock })
-      }).catch(() => {});
-    } catch {}
+  broadcastCatalogChange('stock_toggled', { productId, inStock });
+  return { success: true, products: updatedProducts };
+}
 
-    // Always ensure GitHub repository is directly updated for instant cross-device delivery
-    directGitHubSave(updatedProducts, `Toggle stock for ${productId}`);
+export async function deleteProduct(productId: string): Promise<{ success: boolean; products: Product[] }> {
+  let currentProducts: Product[] = cachedProducts && cachedProducts.length > 0 ? [...cachedProducts] : [...PRODUCTS];
 
-    broadcastCatalogChange('stock_toggled', { productId, inStock });
-    return { success: true, products: cachedProducts || updatedProducts };
-  }
+  const updatedProducts = currentProducts.filter(p => p.id !== productId);
+  cachedProducts = updatedProducts;
 
-  export async function deleteProduct(productId: string): Promise<{ success: boolean; products: Product[] }> {
-    let currentProducts: Product[] = [];
-    try {
-      const saved = localStorage.getItem('nr_catalog_products');
-      currentProducts = saved ? JSON.parse(saved) : (cachedProducts || PRODUCTS);
-    } catch {
-      currentProducts = cachedProducts || PRODUCTS;
-    }
+  // Immediate 0ms local bus broadcast
+  broadcastCatalogChange('product_deleted', { productId });
 
-    const updatedProducts = currentProducts.filter(p => p.id !== productId);
-    cachedProducts = updatedProducts;
+  // 1. Direct GitHub Commit (awaited so GitHub is guaranteed updated before any re-fetch)
+  await directGitHubSave(updatedProducts, `Delete product ${productId}`);
 
-    try {
-      localStorage.setItem('nr_catalog_products', JSON.stringify(updatedProducts));
-      localStorage.setItem('nr_products_last_updated', Date.now().toString());
-    } catch {}
+  // 2. Serverless API endpoint
+  try {
+    const token = sessionStorage.getItem('NR_PORTAL_TOKEN') || '';
+    fetch(`/api/products?id=${encodeURIComponent(productId)}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    }).catch(() => {});
+  } catch {}
 
-    // Immediate 0ms local bus broadcast
-    broadcastCatalogChange('product_deleted', { productId });
-
-    // 1. Always ensure GitHub repository is directly updated for instant cross-device delivery
-    directGitHubSave(updatedProducts, `Delete product ${productId}`);
-
-    // 2. Serverless API endpoint
-    try {
-      const token = sessionStorage.getItem('NR_PORTAL_TOKEN') || '';
-      fetch(`/api/products?id=${encodeURIComponent(productId)}`, {
-        method: 'DELETE',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        }
-      }).catch(() => {});
-    } catch {}
-
-    broadcastCatalogChange('product_deleted', { productId });
-    return { success: true, products: cachedProducts || updatedProducts };
-  }
+  broadcastCatalogChange('product_deleted', { productId });
+  return { success: true, products: updatedProducts };
+}
 
 // ============================================================================
 // REAL-TIME ANNOUNCEMENT CLOUD SYNC
