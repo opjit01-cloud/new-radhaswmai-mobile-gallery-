@@ -51,7 +51,7 @@
       }
     ],
     "tag": "Epic Battery",
-    "badge": "Trending",
+    "badge": "Out of Stock",
     "emiStartsAt": 7492,
     "specs": {
       "Processor": "Apple A18 (3nm)",
@@ -60,7 +60,7 @@
       "Action Button": "Configurable Action Button + Camera Control"
     },
     "description": "Vibrant color-infused back glass with class-leading battery longevity, Action Button, and Apple Intelligence.",
-    "inStock": true
+    "inStock": false
   },
   {
     "id": "iphone-16",
